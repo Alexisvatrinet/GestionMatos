@@ -186,6 +186,7 @@
             this.maskedTextBox1.Size = new System.Drawing.Size(265, 22);
             this.maskedTextBox1.TabIndex = 20;
             this.maskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // textBoxMail
             // 

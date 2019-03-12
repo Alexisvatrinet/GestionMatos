@@ -201,6 +201,7 @@
             this.buttonModifier.TabIndex = 46;
             this.buttonModifier.Text = "Modifier";
             this.buttonModifier.UseVisualStyleBackColor = true;
+            this.buttonModifier.Click += new System.EventHandler(this.buttonModifier_Click);
             // 
             // buttonAjouter
             // 
@@ -210,6 +211,7 @@
             this.buttonAjouter.TabIndex = 45;
             this.buttonAjouter.Text = "Ajouter";
             this.buttonAjouter.UseVisualStyleBackColor = true;
+            this.buttonAjouter.Click += new System.EventHandler(this.buttonAjouter_Click);
             // 
             // listView1
             // 
@@ -218,6 +220,7 @@
             this.listView1.Size = new System.Drawing.Size(220, 395);
             this.listView1.TabIndex = 47;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // labelSite
             // 
@@ -257,6 +260,7 @@
             this.Controls.Add(this.labelSite);
             this.Name = "FormSite";
             this.Text = "FormSite";
+            this.Load += new System.EventHandler(this.FormSite_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
