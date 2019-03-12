@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelMail = new System.Windows.Forms.Label();
+            this.labelClient = new System.Windows.Forms.Label();
             this.labelMtbf = new System.Windows.Forms.Label();
             this.labelSite = new System.Windows.Forms.Label();
             this.labelNom = new System.Windows.Forms.Label();
-            this.textBoxAdresse = new System.Windows.Forms.TextBox();
-            this.textBoxTelephone = new System.Windows.Forms.TextBox();
-            this.textBoxMail = new System.Windows.Forms.TextBox();
+            this.textBoxSite = new System.Windows.Forms.TextBox();
+            this.textBoxMtbf = new System.Windows.Forms.TextBox();
+            this.textBoxClient = new System.Windows.Forms.TextBox();
             this.textBoxNom = new System.Windows.Forms.TextBox();
             this.buttonValider = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -46,19 +46,24 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.labelMateriel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxMail = new System.Windows.Forms.TextBox();
+            this.textBoxDesc = new System.Windows.Forms.TextBox();
             this.labelDescription = new System.Windows.Forms.Label();
+            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Nom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Site = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Mtbf = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // labelMail
+            // labelClient
             // 
-            this.labelMail.AutoSize = true;
-            this.labelMail.Location = new System.Drawing.Point(291, 255);
-            this.labelMail.Name = "labelMail";
-            this.labelMail.Size = new System.Drawing.Size(33, 17);
-            this.labelMail.TabIndex = 36;
-            this.labelMail.Text = "Mail";
+            this.labelClient.AutoSize = true;
+            this.labelClient.Location = new System.Drawing.Point(291, 255);
+            this.labelClient.Name = "labelClient";
+            this.labelClient.Size = new System.Drawing.Size(43, 17);
+            this.labelClient.TabIndex = 36;
+            this.labelClient.Text = "Client";
             // 
             // labelMtbf
             // 
@@ -87,26 +92,26 @@
             this.labelNom.TabIndex = 33;
             this.labelNom.Text = "Nom";
             // 
-            // textBoxAdresse
+            // textBoxSite
             // 
-            this.textBoxAdresse.Location = new System.Drawing.Point(294, 170);
-            this.textBoxAdresse.Name = "textBoxAdresse";
-            this.textBoxAdresse.Size = new System.Drawing.Size(265, 22);
-            this.textBoxAdresse.TabIndex = 28;
+            this.textBoxSite.Location = new System.Drawing.Point(294, 170);
+            this.textBoxSite.Name = "textBoxSite";
+            this.textBoxSite.Size = new System.Drawing.Size(265, 22);
+            this.textBoxSite.TabIndex = 28;
             // 
-            // textBoxTelephone
+            // textBoxMtbf
             // 
-            this.textBoxTelephone.Location = new System.Drawing.Point(294, 224);
-            this.textBoxTelephone.Name = "textBoxTelephone";
-            this.textBoxTelephone.Size = new System.Drawing.Size(265, 22);
-            this.textBoxTelephone.TabIndex = 29;
+            this.textBoxMtbf.Location = new System.Drawing.Point(294, 224);
+            this.textBoxMtbf.Name = "textBoxMtbf";
+            this.textBoxMtbf.Size = new System.Drawing.Size(265, 22);
+            this.textBoxMtbf.TabIndex = 29;
             // 
-            // textBoxMail
+            // textBoxClient
             // 
-            this.textBoxMail.Location = new System.Drawing.Point(294, 275);
-            this.textBoxMail.Name = "textBoxMail";
-            this.textBoxMail.Size = new System.Drawing.Size(265, 22);
-            this.textBoxMail.TabIndex = 30;
+            this.textBoxClient.Location = new System.Drawing.Point(294, 275);
+            this.textBoxClient.Name = "textBoxClient";
+            this.textBoxClient.Size = new System.Drawing.Size(265, 22);
+            this.textBoxClient.TabIndex = 30;
             // 
             // textBoxNom
             // 
@@ -170,6 +175,7 @@
             this.buttonModifier.TabIndex = 22;
             this.buttonModifier.Text = "Modifier";
             this.buttonModifier.UseVisualStyleBackColor = true;
+            this.buttonModifier.Click += new System.EventHandler(this.buttonModifier_Click);
             // 
             // buttonAjouter
             // 
@@ -183,11 +189,18 @@
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Id,
+            this.Nom,
+            this.Site,
+            this.Mtbf,
+            this.Description});
             this.listView1.Location = new System.Drawing.Point(41, 73);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(220, 395);
             this.listView1.TabIndex = 23;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // labelMateriel
@@ -196,9 +209,9 @@
             this.labelMateriel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.labelMateriel.Location = new System.Drawing.Point(35, 39);
             this.labelMateriel.Name = "labelMateriel";
-            this.labelMateriel.Size = new System.Drawing.Size(110, 31);
+            this.labelMateriel.Size = new System.Drawing.Size(79, 31);
             this.labelMateriel.TabIndex = 20;
-            this.labelMateriel.Text = "Matériel";
+            this.labelMateriel.Text = "Objet";
             // 
             // label1
             // 
@@ -209,20 +222,20 @@
             this.label1.TabIndex = 38;
             this.label1.Text = "Mail";
             // 
-            // textBox1
+            // textBoxMail
             // 
-            this.textBox1.Location = new System.Drawing.Point(294, 330);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 22);
-            this.textBox1.TabIndex = 37;
+            this.textBoxMail.Location = new System.Drawing.Point(294, 330);
+            this.textBoxMail.Name = "textBoxMail";
+            this.textBoxMail.Size = new System.Drawing.Size(265, 22);
+            this.textBoxMail.TabIndex = 37;
             // 
-            // textBox2
+            // textBoxDesc
             // 
-            this.textBox2.Location = new System.Drawing.Point(609, 113);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(249, 239);
-            this.textBox2.TabIndex = 39;
+            this.textBoxDesc.Location = new System.Drawing.Point(609, 113);
+            this.textBoxDesc.Multiline = true;
+            this.textBoxDesc.Name = "textBoxDesc";
+            this.textBoxDesc.Size = new System.Drawing.Size(249, 239);
+            this.textBoxDesc.TabIndex = 39;
             // 
             // labelDescription
             // 
@@ -233,22 +246,45 @@
             this.labelDescription.TabIndex = 40;
             this.labelDescription.Text = "Description";
             // 
+            // Id
+            // 
+            this.Id.Text = "Id";
+            this.Id.Width = 0;
+            // 
+            // Nom
+            // 
+            this.Nom.Text = "Nom";
+            // 
+            // Site
+            // 
+            this.Site.Text = "Site";
+            // 
+            // Mtbf
+            // 
+            this.Mtbf.Text = "Mtbf";
+            this.Mtbf.Width = 0;
+            // 
+            // Description
+            // 
+            this.Description.Text = "Description";
+            this.Description.Width = 0;
+            // 
             // FormMateriel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 508);
             this.Controls.Add(this.labelDescription);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxDesc);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.labelMail);
+            this.Controls.Add(this.textBoxMail);
+            this.Controls.Add(this.labelClient);
             this.Controls.Add(this.labelMtbf);
             this.Controls.Add(this.labelSite);
             this.Controls.Add(this.labelNom);
-            this.Controls.Add(this.textBoxAdresse);
-            this.Controls.Add(this.textBoxTelephone);
-            this.Controls.Add(this.textBoxMail);
+            this.Controls.Add(this.textBoxSite);
+            this.Controls.Add(this.textBoxMtbf);
+            this.Controls.Add(this.textBoxClient);
             this.Controls.Add(this.textBoxNom);
             this.Controls.Add(this.buttonValider);
             this.Controls.Add(this.buttonCancel);
@@ -269,13 +305,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelMail;
+        private System.Windows.Forms.Label labelClient;
         private System.Windows.Forms.Label labelMtbf;
         private System.Windows.Forms.Label labelSite;
         private System.Windows.Forms.Label labelNom;
-        private System.Windows.Forms.TextBox textBoxAdresse;
-        private System.Windows.Forms.TextBox textBoxTelephone;
-        private System.Windows.Forms.TextBox textBoxMail;
+        private System.Windows.Forms.TextBox textBoxSite;
+        private System.Windows.Forms.TextBox textBoxMtbf;
+        private System.Windows.Forms.TextBox textBoxClient;
         private System.Windows.Forms.TextBox textBoxNom;
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Button buttonCancel;
@@ -287,8 +323,13 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label labelMateriel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxMail;
+        private System.Windows.Forms.TextBox textBoxDesc;
         private System.Windows.Forms.Label labelDescription;
+        private System.Windows.Forms.ColumnHeader Id;
+        private System.Windows.Forms.ColumnHeader Nom;
+        private System.Windows.Forms.ColumnHeader Site;
+        private System.Windows.Forms.ColumnHeader Mtbf;
+        private System.Windows.Forms.ColumnHeader Description;
     }
 }

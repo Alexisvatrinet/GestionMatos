@@ -32,5 +32,17 @@ namespace PPE2
             FormPropos fabout = new FormPropos();
             fabout.ShowDialog();
         }
+
+        private void interventionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormIntervention fabout = new FormIntervention();
+            fabout.ShowDialog();
+        }
+
+        private void objetsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormMateriel fabout = new FormMateriel();
+            fabout.ShowDialog();
+        }
     }
 }

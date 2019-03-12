@@ -10,14 +10,6 @@ E:\Plein de fichiers\PPE2\obj\Debug\PPE2.exe
 E:\Plein de fichiers\PPE2\obj\Debug\PPE2.pdb
 E:\Plein de fichiers\PPE2\obj\Debug\PPE2.FormPropos.resources
 E:\Plein de fichiers\PPE2\obj\Debug\PPE2.FormClient.resources
-C:\Users\alexi\Desktop\IPSSI\PPE 2\SPOILER_PPE2\PPE2\obj\Debug\PPE2.csprojAssemblyReference.cache
-C:\Users\alexi\Desktop\IPSSI\PPE 2\SPOILER_PPE2\PPE2\obj\Debug\PPE2.Form1.resources
-C:\Users\alexi\Desktop\IPSSI\PPE 2\SPOILER_PPE2\PPE2\obj\Debug\PPE2.FormClient.resources
-C:\Users\alexi\Desktop\IPSSI\PPE 2\SPOILER_PPE2\PPE2\obj\Debug\PPE2.FormIntervention.resources
-C:\Users\alexi\Desktop\IPSSI\PPE 2\SPOILER_PPE2\PPE2\obj\Debug\PPE2.FormMateriel.resources
-C:\Users\alexi\Desktop\IPSSI\PPE 2\SPOILER_PPE2\PPE2\obj\Debug\PPE2.FormPropos.resources
-C:\Users\alexi\Desktop\IPSSI\PPE 2\SPOILER_PPE2\PPE2\obj\Debug\PPE2.Properties.Resources.resources
-C:\Users\alexi\Desktop\IPSSI\PPE 2\SPOILER_PPE2\PPE2\obj\Debug\PPE2.csproj.GenerateResource.cache
-C:\Users\alexi\Desktop\IPSSI\PPE 2\SPOILER_PPE2\PPE2\obj\Debug\PPE2.csproj.CoreCompileInputs.cache
-C:\Users\alexi\Desktop\IPSSI\PPE 2\SPOILER_PPE2\PPE2\obj\Debug\PPE2.exe
-C:\Users\alexi\Desktop\IPSSI\PPE 2\SPOILER_PPE2\PPE2\obj\Debug\PPE2.pdb
+E:\Plein de fichiers\PPE2\obj\Debug\PPE2.FormIntervention.resources
+E:\Plein de fichiers\PPE2\obj\Debug\PPE2.FormMateriel.resources
+E:\Plein de fichiers\PPE2\obj\Debug\PPE2.FormSite.resources

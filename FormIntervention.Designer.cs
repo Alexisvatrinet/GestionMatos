@@ -33,7 +33,6 @@
             this.labelPlanifie = new System.Windows.Forms.Label();
             this.textBoxTelephone = new System.Windows.Forms.TextBox();
             this.textBoxMail = new System.Windows.Forms.TextBox();
-            this.textBoxNom = new System.Windows.Forms.TextBox();
             this.buttonValider = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -48,15 +47,18 @@
             this.labelCommentaire = new System.Windows.Forms.Label();
             this.labelEtat = new System.Windows.Forms.Label();
             this.labelClient = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxEtat = new System.Windows.Forms.TextBox();
+            this.textBoxComm = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.maskedTextBoxPlan = new System.Windows.Forms.MaskedTextBox();
+            this.Etat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Plan = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // labelMail
             // 
             this.labelMail.AutoSize = true;
-            this.labelMail.Location = new System.Drawing.Point(291, 309);
+            this.labelMail.Location = new System.Drawing.Point(317, 309);
             this.labelMail.Name = "labelMail";
             this.labelMail.Size = new System.Drawing.Size(33, 17);
             this.labelMail.TabIndex = 36;
@@ -65,7 +67,7 @@
             // labelTelephone
             // 
             this.labelTelephone.AutoSize = true;
-            this.labelTelephone.Location = new System.Drawing.Point(291, 258);
+            this.labelTelephone.Location = new System.Drawing.Point(317, 258);
             this.labelTelephone.Name = "labelTelephone";
             this.labelTelephone.Size = new System.Drawing.Size(76, 17);
             this.labelTelephone.TabIndex = 35;
@@ -74,7 +76,7 @@
             // labelPlanifie
             // 
             this.labelPlanifie.AutoSize = true;
-            this.labelPlanifie.Location = new System.Drawing.Point(582, 148);
+            this.labelPlanifie.Location = new System.Drawing.Point(608, 148);
             this.labelPlanifie.Name = "labelPlanifie";
             this.labelPlanifie.Size = new System.Drawing.Size(77, 17);
             this.labelPlanifie.TabIndex = 33;
@@ -82,24 +84,17 @@
             // 
             // textBoxTelephone
             // 
-            this.textBoxTelephone.Location = new System.Drawing.Point(294, 278);
+            this.textBoxTelephone.Location = new System.Drawing.Point(320, 278);
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(222, 22);
             this.textBoxTelephone.TabIndex = 29;
             // 
             // textBoxMail
             // 
-            this.textBoxMail.Location = new System.Drawing.Point(294, 329);
+            this.textBoxMail.Location = new System.Drawing.Point(320, 329);
             this.textBoxMail.Name = "textBoxMail";
             this.textBoxMail.Size = new System.Drawing.Size(222, 22);
             this.textBoxMail.TabIndex = 30;
-            // 
-            // textBoxNom
-            // 
-            this.textBoxNom.Location = new System.Drawing.Point(585, 168);
-            this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(212, 22);
-            this.textBoxNom.TabIndex = 27;
             // 
             // buttonValider
             // 
@@ -163,15 +158,18 @@
             this.buttonAjouter.TabIndex = 21;
             this.buttonAjouter.Text = "Ajouter";
             this.buttonAjouter.UseVisualStyleBackColor = true;
-            this.buttonAjouter.Click += new System.EventHandler(this.buttonAjouter_Click);
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Plan,
+            this.Etat});
             this.listView1.Location = new System.Drawing.Point(41, 73);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(220, 395);
+            this.listView1.Size = new System.Drawing.Size(252, 395);
             this.listView1.TabIndex = 23;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // labelIntervention
@@ -186,7 +184,7 @@
             // 
             // textBoxAdresse
             // 
-            this.textBoxAdresse.Location = new System.Drawing.Point(294, 224);
+            this.textBoxAdresse.Location = new System.Drawing.Point(320, 224);
             this.textBoxAdresse.Name = "textBoxAdresse";
             this.textBoxAdresse.Size = new System.Drawing.Size(222, 22);
             this.textBoxAdresse.TabIndex = 28;
@@ -194,7 +192,7 @@
             // labelAdresse
             // 
             this.labelAdresse.AutoSize = true;
-            this.labelAdresse.Location = new System.Drawing.Point(291, 204);
+            this.labelAdresse.Location = new System.Drawing.Point(317, 204);
             this.labelAdresse.Name = "labelAdresse";
             this.labelAdresse.Size = new System.Drawing.Size(60, 17);
             this.labelAdresse.TabIndex = 34;
@@ -203,7 +201,7 @@
             // labelCommentaire
             // 
             this.labelCommentaire.AutoSize = true;
-            this.labelCommentaire.Location = new System.Drawing.Point(582, 258);
+            this.labelCommentaire.Location = new System.Drawing.Point(608, 258);
             this.labelCommentaire.Name = "labelCommentaire";
             this.labelCommentaire.Size = new System.Drawing.Size(91, 17);
             this.labelCommentaire.TabIndex = 43;
@@ -212,7 +210,7 @@
             // labelEtat
             // 
             this.labelEtat.AutoSize = true;
-            this.labelEtat.Location = new System.Drawing.Point(582, 204);
+            this.labelEtat.Location = new System.Drawing.Point(608, 204);
             this.labelEtat.Name = "labelEtat";
             this.labelEtat.Size = new System.Drawing.Size(33, 17);
             this.labelEtat.TabIndex = 42;
@@ -221,44 +219,63 @@
             // labelClient
             // 
             this.labelClient.AutoSize = true;
-            this.labelClient.Location = new System.Drawing.Point(291, 148);
+            this.labelClient.Location = new System.Drawing.Point(317, 148);
             this.labelClient.Name = "labelClient";
             this.labelClient.Size = new System.Drawing.Size(43, 17);
             this.labelClient.TabIndex = 41;
             this.labelClient.Text = "Client";
             // 
-            // textBox1
+            // textBoxEtat
             // 
-            this.textBox1.Location = new System.Drawing.Point(585, 224);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(212, 22);
-            this.textBox1.TabIndex = 38;
+            this.textBoxEtat.Location = new System.Drawing.Point(611, 224);
+            this.textBoxEtat.Name = "textBoxEtat";
+            this.textBoxEtat.Size = new System.Drawing.Size(212, 22);
+            this.textBoxEtat.TabIndex = 38;
             // 
-            // textBox2
+            // textBoxComm
             // 
-            this.textBox2.Location = new System.Drawing.Point(585, 278);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(212, 73);
-            this.textBox2.TabIndex = 39;
+            this.textBoxComm.Location = new System.Drawing.Point(611, 278);
+            this.textBoxComm.Multiline = true;
+            this.textBoxComm.Name = "textBoxComm";
+            this.textBoxComm.Size = new System.Drawing.Size(212, 73);
+            this.textBoxComm.TabIndex = 39;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(294, 168);
+            this.textBox4.Location = new System.Drawing.Point(320, 168);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(222, 22);
             this.textBox4.TabIndex = 37;
+            // 
+            // maskedTextBoxPlan
+            // 
+            this.maskedTextBoxPlan.Location = new System.Drawing.Point(611, 168);
+            this.maskedTextBoxPlan.Mask = "00/00/0000 00:00";
+            this.maskedTextBoxPlan.Name = "maskedTextBoxPlan";
+            this.maskedTextBoxPlan.Size = new System.Drawing.Size(212, 22);
+            this.maskedTextBoxPlan.TabIndex = 44;
+            this.maskedTextBoxPlan.ValidatingType = typeof(System.DateTime);
+            // 
+            // Etat
+            // 
+            this.Etat.Text = "Terminée";
+            // 
+            // Plan
+            // 
+            this.Plan.Text = "Planifié";
+            this.Plan.Width = 135;
             // 
             // FormIntervention
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 508);
+            this.Controls.Add(this.maskedTextBoxPlan);
             this.Controls.Add(this.labelCommentaire);
             this.Controls.Add(this.labelEtat);
             this.Controls.Add(this.labelClient);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxEtat);
+            this.Controls.Add(this.textBoxComm);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.labelMail);
             this.Controls.Add(this.labelTelephone);
@@ -267,7 +284,6 @@
             this.Controls.Add(this.textBoxAdresse);
             this.Controls.Add(this.textBoxTelephone);
             this.Controls.Add(this.textBoxMail);
-            this.Controls.Add(this.textBoxNom);
             this.Controls.Add(this.buttonValider);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.button5);
@@ -279,6 +295,7 @@
             this.Controls.Add(this.labelIntervention);
             this.Name = "FormIntervention";
             this.Text = "FormIntervention";
+            this.Load += new System.EventHandler(this.FormIntervention_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,7 +308,6 @@
         private System.Windows.Forms.Label labelPlanifie;
         private System.Windows.Forms.TextBox textBoxTelephone;
         private System.Windows.Forms.TextBox textBoxMail;
-        private System.Windows.Forms.TextBox textBoxNom;
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button button5;
@@ -306,8 +322,11 @@
         private System.Windows.Forms.Label labelCommentaire;
         private System.Windows.Forms.Label labelEtat;
         private System.Windows.Forms.Label labelClient;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxEtat;
+        private System.Windows.Forms.TextBox textBoxComm;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxPlan;
+        private System.Windows.Forms.ColumnHeader Etat;
+        private System.Windows.Forms.ColumnHeader Plan;
     }
 }
