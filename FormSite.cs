@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace PPE2
 {
-    public partial class FormIntervention : Form
+    public partial class FormSite : Form
     {
-        public FormIntervention()
+        public FormSite()
         {
             InitializeComponent();
-        }
-
-        private void buttonAjouter_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
