@@ -44,16 +44,16 @@
             this.buttonModifier = new System.Windows.Forms.Button();
             this.buttonAjouter = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.labelMateriel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxMail = new System.Windows.Forms.TextBox();
-            this.textBoxDesc = new System.Windows.Forms.TextBox();
-            this.labelDescription = new System.Windows.Forms.Label();
             this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Site = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Mtbf = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.labelMateriel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxMail = new System.Windows.Forms.TextBox();
+            this.textBoxDesc = new System.Windows.Forms.TextBox();
+            this.labelDescription = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelClient
@@ -138,6 +138,7 @@
             this.buttonCancel.TabIndex = 32;
             this.buttonCancel.Text = "Annuler";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // button5
             // 
@@ -156,6 +157,7 @@
             this.button4.TabIndex = 25;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // buttonSupprimer
             // 
@@ -203,6 +205,29 @@
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
+            // Id
+            // 
+            this.Id.Text = "Id";
+            this.Id.Width = 0;
+            // 
+            // Nom
+            // 
+            this.Nom.Text = "Nom";
+            // 
+            // Site
+            // 
+            this.Site.Text = "Site";
+            // 
+            // Mtbf
+            // 
+            this.Mtbf.Text = "Mtbf";
+            this.Mtbf.Width = 0;
+            // 
+            // Description
+            // 
+            this.Description.Text = "Description";
+            this.Description.Width = 0;
+            // 
             // labelMateriel
             // 
             this.labelMateriel.AutoSize = true;
@@ -236,6 +261,7 @@
             this.textBoxDesc.Name = "textBoxDesc";
             this.textBoxDesc.Size = new System.Drawing.Size(249, 239);
             this.textBoxDesc.TabIndex = 39;
+            this.textBoxDesc.TextChanged += new System.EventHandler(this.textBoxDesc_TextChanged);
             // 
             // labelDescription
             // 
@@ -245,29 +271,6 @@
             this.labelDescription.Size = new System.Drawing.Size(79, 17);
             this.labelDescription.TabIndex = 40;
             this.labelDescription.Text = "Description";
-            // 
-            // Id
-            // 
-            this.Id.Text = "Id";
-            this.Id.Width = 0;
-            // 
-            // Nom
-            // 
-            this.Nom.Text = "Nom";
-            // 
-            // Site
-            // 
-            this.Site.Text = "Site";
-            // 
-            // Mtbf
-            // 
-            this.Mtbf.Text = "Mtbf";
-            this.Mtbf.Width = 0;
-            // 
-            // Description
-            // 
-            this.Description.Text = "Description";
-            this.Description.Width = 0;
             // 
             // FormMateriel
             // 

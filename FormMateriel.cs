@@ -102,5 +102,20 @@ namespace PPE2
             q = 3;
             modifierBoutton();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxDesc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

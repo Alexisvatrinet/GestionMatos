@@ -30,16 +30,16 @@
         {
             this.labelCommentaire = new System.Windows.Forms.Label();
             this.labelVille = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxComm = new System.Windows.Forms.TextBox();
+            this.textBoxVille = new System.Windows.Forms.TextBox();
             this.labelMail = new System.Windows.Forms.Label();
             this.labelTelephone = new System.Windows.Forms.Label();
             this.labelAdresse = new System.Windows.Forms.Label();
             this.labelPostal = new System.Windows.Forms.Label();
             this.textBoxAdresse = new System.Windows.Forms.TextBox();
-            this.textBoxTelephone = new System.Windows.Forms.TextBox();
+            this.textBoxTel = new System.Windows.Forms.TextBox();
             this.textBoxMail = new System.Windows.Forms.TextBox();
-            this.textBoxNom = new System.Windows.Forms.TextBox();
+            this.textBoxCp = new System.Windows.Forms.TextBox();
             this.buttonValider = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -49,6 +49,13 @@
             this.buttonAjouter = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.labelSite = new System.Windows.Forms.Label();
+            this.Ville = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Adresse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Téléphone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Mail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CodePostal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Commentaire = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // labelCommentaire
@@ -69,20 +76,20 @@
             this.labelVille.TabIndex = 64;
             this.labelVille.Text = "Ville";
             // 
-            // textBox2
+            // textBoxComm
             // 
-            this.textBox2.Location = new System.Drawing.Point(591, 233);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(212, 127);
-            this.textBox2.TabIndex = 63;
+            this.textBoxComm.Location = new System.Drawing.Point(591, 233);
+            this.textBoxComm.Multiline = true;
+            this.textBoxComm.Name = "textBoxComm";
+            this.textBoxComm.Size = new System.Drawing.Size(212, 127);
+            this.textBoxComm.TabIndex = 63;
             // 
-            // textBox4
+            // textBoxVille
             // 
-            this.textBox4.Location = new System.Drawing.Point(300, 177);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(222, 22);
-            this.textBox4.TabIndex = 61;
+            this.textBoxVille.Location = new System.Drawing.Point(300, 177);
+            this.textBoxVille.Name = "textBoxVille";
+            this.textBoxVille.Size = new System.Drawing.Size(222, 22);
+            this.textBoxVille.TabIndex = 61;
             // 
             // labelMail
             // 
@@ -127,12 +134,12 @@
             this.textBoxAdresse.Size = new System.Drawing.Size(222, 22);
             this.textBoxAdresse.TabIndex = 52;
             // 
-            // textBoxTelephone
+            // textBoxTel
             // 
-            this.textBoxTelephone.Location = new System.Drawing.Point(300, 287);
-            this.textBoxTelephone.Name = "textBoxTelephone";
-            this.textBoxTelephone.Size = new System.Drawing.Size(222, 22);
-            this.textBoxTelephone.TabIndex = 53;
+            this.textBoxTel.Location = new System.Drawing.Point(300, 287);
+            this.textBoxTel.Name = "textBoxTel";
+            this.textBoxTel.Size = new System.Drawing.Size(222, 22);
+            this.textBoxTel.TabIndex = 53;
             // 
             // textBoxMail
             // 
@@ -141,12 +148,12 @@
             this.textBoxMail.Size = new System.Drawing.Size(222, 22);
             this.textBoxMail.TabIndex = 54;
             // 
-            // textBoxNom
+            // textBoxCp
             // 
-            this.textBoxNom.Location = new System.Drawing.Point(591, 177);
-            this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(212, 22);
-            this.textBoxNom.TabIndex = 51;
+            this.textBoxCp.Location = new System.Drawing.Point(591, 177);
+            this.textBoxCp.Name = "textBoxCp";
+            this.textBoxCp.Size = new System.Drawing.Size(212, 22);
+            this.textBoxCp.TabIndex = 51;
             // 
             // buttonValider
             // 
@@ -156,6 +163,7 @@
             this.buttonValider.TabIndex = 55;
             this.buttonValider.Text = "Valider";
             this.buttonValider.UseVisualStyleBackColor = true;
+            this.buttonValider.Click += new System.EventHandler(this.buttonValider_Click);
             // 
             // buttonCancel
             // 
@@ -192,6 +200,7 @@
             this.buttonSupprimer.TabIndex = 48;
             this.buttonSupprimer.Text = "Supprimer";
             this.buttonSupprimer.UseVisualStyleBackColor = true;
+            this.buttonSupprimer.Click += new System.EventHandler(this.buttonSupprimer_Click);
             // 
             // buttonModifier
             // 
@@ -215,11 +224,20 @@
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.id,
+            this.Ville,
+            this.Adresse,
+            this.Téléphone,
+            this.Mail,
+            this.CodePostal,
+            this.Commentaire});
             this.listView1.Location = new System.Drawing.Point(47, 82);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(220, 395);
             this.listView1.TabIndex = 47;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // labelSite
@@ -232,6 +250,38 @@
             this.labelSite.TabIndex = 44;
             this.labelSite.Text = "Sites";
             // 
+            // Ville
+            // 
+            this.Ville.Text = "Ville";
+            // 
+            // Adresse
+            // 
+            this.Adresse.Text = "Adresse";
+            this.Adresse.Width = 0;
+            // 
+            // Téléphone
+            // 
+            this.Téléphone.Text = "Tél";
+            // 
+            // Mail
+            // 
+            this.Mail.Text = "Mail";
+            this.Mail.Width = 0;
+            // 
+            // CodePostal
+            // 
+            this.CodePostal.Text = "CodePostal";
+            this.CodePostal.Width = 0;
+            // 
+            // Commentaire
+            // 
+            this.Commentaire.Text = "Commentaire";
+            this.Commentaire.Width = 0;
+            // 
+            // id
+            // 
+            this.id.Width = 0;
+            // 
             // FormSite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -239,16 +289,16 @@
             this.ClientSize = new System.Drawing.Size(870, 508);
             this.Controls.Add(this.labelCommentaire);
             this.Controls.Add(this.labelVille);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBoxComm);
+            this.Controls.Add(this.textBoxVille);
             this.Controls.Add(this.labelMail);
             this.Controls.Add(this.labelTelephone);
             this.Controls.Add(this.labelAdresse);
             this.Controls.Add(this.labelPostal);
             this.Controls.Add(this.textBoxAdresse);
-            this.Controls.Add(this.textBoxTelephone);
+            this.Controls.Add(this.textBoxTel);
             this.Controls.Add(this.textBoxMail);
-            this.Controls.Add(this.textBoxNom);
+            this.Controls.Add(this.textBoxCp);
             this.Controls.Add(this.buttonValider);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.button5);
@@ -270,16 +320,16 @@
 
         private System.Windows.Forms.Label labelCommentaire;
         private System.Windows.Forms.Label labelVille;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxComm;
+        private System.Windows.Forms.TextBox textBoxVille;
         private System.Windows.Forms.Label labelMail;
         private System.Windows.Forms.Label labelTelephone;
         private System.Windows.Forms.Label labelAdresse;
         private System.Windows.Forms.Label labelPostal;
         private System.Windows.Forms.TextBox textBoxAdresse;
-        private System.Windows.Forms.TextBox textBoxTelephone;
+        private System.Windows.Forms.TextBox textBoxTel;
         private System.Windows.Forms.TextBox textBoxMail;
-        private System.Windows.Forms.TextBox textBoxNom;
+        private System.Windows.Forms.TextBox textBoxCp;
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button button5;
@@ -289,5 +339,12 @@
         private System.Windows.Forms.Button buttonAjouter;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label labelSite;
+        private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.ColumnHeader Ville;
+        private System.Windows.Forms.ColumnHeader Adresse;
+        private System.Windows.Forms.ColumnHeader Téléphone;
+        private System.Windows.Forms.ColumnHeader Mail;
+        private System.Windows.Forms.ColumnHeader CodePostal;
+        private System.Windows.Forms.ColumnHeader Commentaire;
     }
 }
