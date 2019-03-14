@@ -13,3 +13,18 @@ E:\Plein de fichiers\PPE2\obj\Debug\PPE2.FormClient.resources
 E:\Plein de fichiers\PPE2\obj\Debug\PPE2.FormIntervention.resources
 E:\Plein de fichiers\PPE2\obj\Debug\PPE2.FormMateriel.resources
 E:\Plein de fichiers\PPE2\obj\Debug\PPE2.FormSite.resources
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\bin\Debug\PPE2.exe.config
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\bin\Debug\PPE2.exe
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\bin\Debug\PPE2.pdb
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.csprojAssemblyReference.cache
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.Form1.resources
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.FormClient.resources
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.FormIntervention.resources
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.FormMateriel.resources
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.FormPropos.resources
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.FormSite.resources
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.Properties.Resources.resources
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.csproj.GenerateResource.cache
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.csproj.CoreCompileInputs.cache
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.exe
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.pdb

@@ -44,5 +44,11 @@ namespace PPE2
             FormMateriel fabout = new FormMateriel();
             fabout.ShowDialog();
         }
+
+        private void sitesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSite fabout = new FormSite();
+            fabout.ShowDialog();
+        }
     }
 }

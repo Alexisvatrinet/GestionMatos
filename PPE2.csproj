@@ -68,7 +68,7 @@
     <Compile Include="FormMateriel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMateriel.Designer.cs">
+    <Compile Include="FormMateriel.designer.cs">
       <DependentUpon>FormMateriel.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPropos.cs">

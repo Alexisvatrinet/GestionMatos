@@ -94,6 +94,7 @@
             this.sitesToolStripMenuItem.Name = "sitesToolStripMenuItem";
             this.sitesToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.sitesToolStripMenuItem.Text = "Sites...";
+            this.sitesToolStripMenuItem.Click += new System.EventHandler(this.sitesToolStripMenuItem_Click);
             // 
             // fermerToolStripMenuItem
             // 

@@ -81,7 +81,18 @@ namespace PPE2
             string Commentaire = textBoxComm.Text; 
 
             cn.Open();
-            cmd.CommandText = "INSERT INTO Sites VALUES ";
+            cmd.CommandText = "INSERT INTO SITES VALUES ";
+        }
+
+        private void Supprimer()
+        {
+            string ville = textBoxVille.Text;
+            string Adresse = textBoxAdresse.Text;
+            int Téléphone = int.Parse(textBoxTel.Text);
+            string CodePostal = textBoxCp.Text;
+            string Commentaire = textBoxComm.Text; 
+            cn.Open();
+            cmd.CommandText = "Delete From SITES VALUES ";
         }
 
         private void buttonAjouter_Click(object sender, EventArgs e)
@@ -93,7 +104,7 @@ namespace PPE2
 
         private void buttonValider_Click(object sender, EventArgs e)
         {
-            ListViewItem aled = listView1.SelectedItems[2];
+            ListViewItem aled = listView1.SelectedItems[1];
             textBoxComm.Text = aled.ToString();
             //switch (q)
             //{
@@ -106,6 +117,7 @@ namespace PPE2
         {
             q = 3;
             modifierBoutton();
+            Supprimer();
         }
     }
 }
