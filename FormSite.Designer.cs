@@ -37,7 +37,6 @@
             this.labelAdresse = new System.Windows.Forms.Label();
             this.labelPostal = new System.Windows.Forms.Label();
             this.textBoxAdresse = new System.Windows.Forms.TextBox();
-            this.textBoxTel = new System.Windows.Forms.TextBox();
             this.textBoxMail = new System.Windows.Forms.TextBox();
             this.textBoxCp = new System.Windows.Forms.TextBox();
             this.buttonValider = new System.Windows.Forms.Button();
@@ -48,14 +47,15 @@
             this.buttonModifier = new System.Windows.Forms.Button();
             this.buttonAjouter = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.labelSite = new System.Windows.Forms.Label();
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Ville = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Adresse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Téléphone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Mail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CodePostal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Commentaire = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.labelSite = new System.Windows.Forms.Label();
+            this.maskedTextBoxTel = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // labelCommentaire
@@ -133,13 +133,6 @@
             this.textBoxAdresse.Name = "textBoxAdresse";
             this.textBoxAdresse.Size = new System.Drawing.Size(222, 22);
             this.textBoxAdresse.TabIndex = 52;
-            // 
-            // textBoxTel
-            // 
-            this.textBoxTel.Location = new System.Drawing.Point(300, 287);
-            this.textBoxTel.Name = "textBoxTel";
-            this.textBoxTel.Size = new System.Drawing.Size(222, 22);
-            this.textBoxTel.TabIndex = 53;
             // 
             // textBoxMail
             // 
@@ -240,15 +233,9 @@
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // labelSite
+            // id
             // 
-            this.labelSite.AutoSize = true;
-            this.labelSite.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.labelSite.Location = new System.Drawing.Point(41, 48);
-            this.labelSite.Name = "labelSite";
-            this.labelSite.Size = new System.Drawing.Size(75, 31);
-            this.labelSite.TabIndex = 44;
-            this.labelSite.Text = "Sites";
+            this.id.Width = 0;
             // 
             // Ville
             // 
@@ -278,15 +265,30 @@
             this.Commentaire.Text = "Commentaire";
             this.Commentaire.Width = 0;
             // 
-            // id
+            // labelSite
             // 
-            this.id.Width = 0;
+            this.labelSite.AutoSize = true;
+            this.labelSite.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.labelSite.Location = new System.Drawing.Point(41, 48);
+            this.labelSite.Name = "labelSite";
+            this.labelSite.Size = new System.Drawing.Size(75, 31);
+            this.labelSite.TabIndex = 44;
+            this.labelSite.Text = "Sites";
+            // 
+            // maskedTextBoxTel
+            // 
+            this.maskedTextBoxTel.Location = new System.Drawing.Point(300, 287);
+            this.maskedTextBoxTel.Mask = "00 00 00 00 00 ";
+            this.maskedTextBoxTel.Name = "maskedTextBoxTel";
+            this.maskedTextBoxTel.Size = new System.Drawing.Size(222, 22);
+            this.maskedTextBoxTel.TabIndex = 67;
             // 
             // FormSite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 508);
+            this.Controls.Add(this.maskedTextBoxTel);
             this.Controls.Add(this.labelCommentaire);
             this.Controls.Add(this.labelVille);
             this.Controls.Add(this.textBoxComm);
@@ -296,7 +298,6 @@
             this.Controls.Add(this.labelAdresse);
             this.Controls.Add(this.labelPostal);
             this.Controls.Add(this.textBoxAdresse);
-            this.Controls.Add(this.textBoxTel);
             this.Controls.Add(this.textBoxMail);
             this.Controls.Add(this.textBoxCp);
             this.Controls.Add(this.buttonValider);
@@ -327,7 +328,6 @@
         private System.Windows.Forms.Label labelAdresse;
         private System.Windows.Forms.Label labelPostal;
         private System.Windows.Forms.TextBox textBoxAdresse;
-        private System.Windows.Forms.TextBox textBoxTel;
         private System.Windows.Forms.TextBox textBoxMail;
         private System.Windows.Forms.TextBox textBoxCp;
         private System.Windows.Forms.Button buttonValider;
@@ -346,5 +346,6 @@
         private System.Windows.Forms.ColumnHeader Mail;
         private System.Windows.Forms.ColumnHeader CodePostal;
         private System.Windows.Forms.ColumnHeader Commentaire;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxTel;
     }
 }

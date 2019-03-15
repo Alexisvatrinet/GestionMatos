@@ -78,7 +78,7 @@ namespace PPE2
             string nom = textBoxNom.Text;
             string adresse = textBoxAdresse.Text;
             string mail = textBoxMail.Text;
-            int numero = int.Parse(maskedTextBoxTel.Text);
+            string numero = maskedTextBoxTel.Text;
             cn.Open();
             cmd.CommandText = "INSERT INTO Client VALUES (@nom, @adresse, @numero, @mail)";
             cmd.Connection = cn;
@@ -150,6 +150,21 @@ namespace PPE2
                 maskedTextBoxTel.Text = objet.SubItems[2].Text;
                 
             }
+        }
+
+        private void buttonModifier_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSupprimer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
