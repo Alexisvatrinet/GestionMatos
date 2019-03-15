@@ -42,7 +42,7 @@
             this.labelAdresse = new System.Windows.Forms.Label();
             this.labelTelephone = new System.Windows.Forms.Label();
             this.labelMail = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxTel = new System.Windows.Forms.MaskedTextBox();
             this.textBoxMail = new System.Windows.Forms.TextBox();
             this.listViewClient = new System.Windows.Forms.ListView();
             this.Nom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -177,16 +177,15 @@
             this.labelMail.TabIndex = 19;
             this.labelMail.Text = "Mail";
             // 
-            // maskedTextBox1
+            // maskedTextBoxTel
             // 
-            this.maskedTextBox1.HideSelection = false;
-            this.maskedTextBox1.Location = new System.Drawing.Point(296, 285);
-            this.maskedTextBox1.Mask = "00 00 00 00 00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(265, 22);
-            this.maskedTextBox1.TabIndex = 20;
-            this.maskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            this.maskedTextBoxTel.HideSelection = false;
+            this.maskedTextBoxTel.Location = new System.Drawing.Point(296, 285);
+            this.maskedTextBoxTel.Mask = "00 00 00 00 00";
+            this.maskedTextBoxTel.Name = "maskedTextBoxTel";
+            this.maskedTextBoxTel.Size = new System.Drawing.Size(265, 22);
+            this.maskedTextBoxTel.TabIndex = 20;
+            this.maskedTextBoxTel.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // textBoxMail
             // 
@@ -204,7 +203,9 @@
             this.telephone,
             this.mail,
             this.adresse});
+            this.listViewClient.FullRowSelect = true;
             this.listViewClient.Location = new System.Drawing.Point(28, 98);
+            this.listViewClient.MultiSelect = false;
             this.listViewClient.Name = "listViewClient";
             this.listViewClient.Size = new System.Drawing.Size(240, 375);
             this.listViewClient.TabIndex = 22;
@@ -244,7 +245,7 @@
             this.ClientSize = new System.Drawing.Size(870, 508);
             this.Controls.Add(this.listViewClient);
             this.Controls.Add(this.textBoxMail);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.maskedTextBoxTel);
             this.Controls.Add(this.labelMail);
             this.Controls.Add(this.labelTelephone);
             this.Controls.Add(this.labelAdresse);
@@ -286,7 +287,7 @@
         private System.Windows.Forms.Label labelAdresse;
         private System.Windows.Forms.Label labelTelephone;
         private System.Windows.Forms.Label labelMail;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxTel;
         private System.Windows.Forms.TextBox textBoxMail;
         private System.Windows.Forms.ListView listViewClient;
         private System.Windows.Forms.ColumnHeader Nom;

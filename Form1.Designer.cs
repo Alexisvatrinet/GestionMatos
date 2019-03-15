@@ -71,28 +71,28 @@
             // clientsToolStripMenuItem
             // 
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
-            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.clientsToolStripMenuItem.Text = "Clients...";
             this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
             // 
             // objetsToolStripMenuItem
             // 
             this.objetsToolStripMenuItem.Name = "objetsToolStripMenuItem";
-            this.objetsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.objetsToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.objetsToolStripMenuItem.Text = "Objets...";
             this.objetsToolStripMenuItem.Click += new System.EventHandler(this.objetsToolStripMenuItem_Click);
             // 
             // interventionToolStripMenuItem
             // 
             this.interventionToolStripMenuItem.Name = "interventionToolStripMenuItem";
-            this.interventionToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.interventionToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.interventionToolStripMenuItem.Text = "Intervention...";
             this.interventionToolStripMenuItem.Click += new System.EventHandler(this.interventionToolStripMenuItem_Click);
             // 
             // sitesToolStripMenuItem
             // 
             this.sitesToolStripMenuItem.Name = "sitesToolStripMenuItem";
-            this.sitesToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.sitesToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.sitesToolStripMenuItem.Text = "Sites...";
             this.sitesToolStripMenuItem.Click += new System.EventHandler(this.sitesToolStripMenuItem_Click);
             // 
@@ -100,7 +100,7 @@
             // 
             this.fermerToolStripMenuItem.Name = "fermerToolStripMenuItem";
             this.fermerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.fermerToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.fermerToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.fermerToolStripMenuItem.Text = "Fermer...";
             this.fermerToolStripMenuItem.Click += new System.EventHandler(this.fermerToolStripMenuItem_Click);
             // 
@@ -132,6 +132,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "GestionMatos";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStripTop.ResumeLayout(false);
             this.toolStripTop.PerformLayout();
             this.ResumeLayout(false);

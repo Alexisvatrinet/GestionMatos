@@ -123,6 +123,7 @@
             this.textBoxNom.Name = "textBoxNom";
             this.textBoxNom.Size = new System.Drawing.Size(265, 22);
             this.textBoxNom.TabIndex = 27;
+            this.textBoxNom.TextChanged += new System.EventHandler(this.textBoxNom_TextChanged);
             // 
             // buttonValider
             // 

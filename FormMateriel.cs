@@ -266,5 +266,10 @@ namespace PPE2
             }
             cn.Close();
         }
+
+        private void textBoxNom_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

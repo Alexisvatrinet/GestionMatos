@@ -50,5 +50,10 @@ namespace PPE2
             FormSite fabout = new FormSite();
             fabout.ShowDialog();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

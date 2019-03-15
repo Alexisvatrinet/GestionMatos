@@ -15,27 +15,80 @@ namespace PPE2
 {
     public partial class FormClient : Form
     {
-
+        int q = 0;
         private SqlConnection cn;
         private SqlCommand cmd;
         private SqlDataReader dr;
 
-
-        public bool IsValid(string emailaddress)
+        private void desactiverBox()
         {
-            try
-            {
-                MailAddress test = new MailAddress(textBoxMail.Text);
-
-                return true;
-            }
-            catch (FormatException)
-            {
-                return false;
-            }
+            textBoxAdresse.Enabled = false;
+            textBoxMail.Enabled = false;
+            textBoxMail.Enabled = false;
+            maskedTextBoxTel.Enabled = false;
+            buttonCancel.Enabled = false;
+            buttonValider.Enabled = false;
         }
-        int q = 0;
-        private object cnSQL;
+
+        private void reactiverBox()
+        {
+            textBoxAdresse.Enabled = true;
+            textBoxMail.Enabled = true;
+            textBoxMail.Enabled = true;
+            maskedTextBoxTel.Enabled = true;
+            buttonCancel.Enabled = true;
+            buttonValider.Enabled = true;
+            buttonSupprimer.Enabled = false;
+            buttonAjouter.Enabled = false;
+            buttonModifier.Enabled = false;
+        }
+
+        private void viderBox()
+        {
+            textBoxAdresse.Text = "";
+            textBoxNom.Text = "";
+            textBoxMail.Text = "";
+            maskedTextBoxTel.Text = "";
+        }
+
+        private void listviewplein()
+        {
+            cn = new SqlConnection(@"Server =.\SQLEXPRESS; Database = GestionMatos;  Integrated Security = SSPI; Connect Timeout = 5");
+            cmd = new SqlCommand();
+            cn.Open();
+            cmd.CommandText = "SELECT * FROM Client";
+            cmd.Connection = cn;
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                ListViewItem lvi = new ListViewItem(dr["nom"].ToString());
+                lvi.SubItems.Add(dr["id"].ToString());
+                lvi.SubItems.Add(dr["telephone"].ToString());
+                lvi.SubItems.Add(dr["mail"].ToString());
+                lvi.SubItems.Add(dr["adresse"].ToString());
+                listViewClient.Items.Add(lvi);
+            }
+            cn.Close();
+        }
+
+        private void ajouter()
+        {
+            cn = new SqlConnection(@"Server =.\SQLEXPRESS; Database = GestionMatos;  Integrated Security = SSPI; Connect Timeout = 5");
+            cmd = new SqlCommand();
+            string nom = textBoxNom.Text;
+            string adresse = textBoxAdresse.Text;
+            string mail = textBoxMail.Text;
+            int numero = int.Parse(maskedTextBoxTel.Text);
+            cn.Open();
+            cmd.CommandText = "INSERT INTO Client VALUES (@nom, @adresse, @numero, @mail)";
+            cmd.Connection = cn;
+            cmd.Parameters.AddWithValue("@nom", nom);
+            cmd.Parameters.AddWithValue("@adresse", adresse);
+            cmd.Parameters.AddWithValue("@numero", numero);
+            cmd.Parameters.AddWithValue("@mail", mail);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
 
         public FormClient()
         {
@@ -45,11 +98,8 @@ namespace PPE2
         private void buttonAjouter_Click(object sender, EventArgs e)
         {
             q = 1;
-            textBoxNom.Text = "";
-            textBoxAdresse.Text = "";
-            textBoxMail.Text = "";
-            maskedTextBox1.Text = "";
-            
+            reactiverBox();
+            viderBox();
         }
 
         private void buttonValider_Click(object sender, EventArgs e)
@@ -57,7 +107,9 @@ namespace PPE2
             switch (q)
             {
                 case 1:
-
+                    ajouter();
+                    listViewClient.Clear();
+                    listviewplein();
                     break;
                 case 2:
 
@@ -84,22 +136,7 @@ namespace PPE2
 
         private void FormClient_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Server =.\SQLEXPRESS; Database = GestionMatos;  Integrated Security = SSPI; Connect Timeout = 5");
-            cmd = new SqlCommand();
-            cn.Open();
-            cmd.CommandText = "SELECT * FROM Client";
-            cmd.Connection = cn;
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                ListViewItem lvi = new ListViewItem(dr["nom"].ToString());
-                lvi.SubItems.Add(dr["id"].ToString());
-                lvi.SubItems.Add(dr["telephone"].ToString());
-                lvi.SubItems.Add(dr["mail"].ToString());
-                lvi.SubItems.Add(dr["adresse"].ToString());
-                listViewClient.Items.Add(lvi);
-            }
-            cn.Close();
+            listviewplein();
         }
 
         private void listViewClient_SelectedIndexChanged(object sender, EventArgs e)
@@ -110,14 +147,9 @@ namespace PPE2
                 textBoxAdresse.Text = objet.SubItems[4].Text;
                 textBoxNom.Text = objet.SubItems[0].Text;
                 textBoxMail.Text = objet.SubItems[3].Text;
-                maskedTextBox1.Text = objet.SubItems[2].Text;
+                maskedTextBoxTel.Text = objet.SubItems[2].Text;
                 
             }
-        }
-
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
         }
     }
 }
