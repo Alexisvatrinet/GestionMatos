@@ -63,7 +63,9 @@ namespace PPE2
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                ListViewItem objet = listView1.SelectedItems[0];
+ 
+                ListViewItem objet = listView1.SelectedItems[0]; 
+                textBoxidsite.Text = objet.SubItems[0].Text;
                 textBoxVille.Text = objet.SubItems[1].Text;
                 textBoxAdresse.Text = objet.SubItems[2].Text;
                 maskedTextBoxTel.Text = objet.SubItems[3].Text;
@@ -99,8 +101,13 @@ namespace PPE2
             while (dr.Read())
             {
                 ListViewItem lvi = new ListViewItem(dr["id"].ToString());
-                lvi.SubItems.Add(dr["nom"].ToString());
-                lvi.SubItems.Add(dr["id_utilisateur"].ToString());
+                lvi.SubItems.Add(dr["Ville"].ToString());
+                lvi.SubItems.Add(dr["Adresse"].ToString());
+                lvi.SubItems.Add(dr["Téléphone"].ToString());
+                lvi.SubItems.Add(dr["Mail"].ToString());
+                lvi.SubItems.Add(dr["Codepostal"].ToString());
+                lvi.SubItems.Add(dr["Commentaire"].ToString());
+
                 listView1.Items.Add(lvi);
             }
             cn.Close();
@@ -120,13 +127,14 @@ namespace PPE2
             string CodePostal = textBoxCp.Text;
             string Commentaire = textBoxComm.Text; 
             cn.Open();
-            cmd.CommandText = "INSERT INTO SITES VALUES (@Ville, @Adresse, @Téléphone, @Mail, @Code postal, @Commentaire)";
+            cmd.CommandText = "INSERT INTO Sites VALUES (@Ville, @Adresse, @Téléphone, @Mail, @CodePostal, @Commentaire)";
             cmd.Connection = cn;
+
             cmd.Parameters.AddWithValue("@Ville", Ville);
             cmd.Parameters.AddWithValue("@Adresse", Adresse);
             cmd.Parameters.AddWithValue("@Téléphone", Téléphone);
             cmd.Parameters.AddWithValue("@Mail", Mail);
-            cmd.Parameters.AddWithValue("@Code postal", CodePostal);
+            cmd.Parameters.AddWithValue("@CodePostal", CodePostal);
             cmd.Parameters.AddWithValue("@Commentaire", Commentaire);
             cmd.ExecuteNonQuery();
             cn.Close();
@@ -137,11 +145,17 @@ namespace PPE2
         {
             string ville = textBoxVille.Text;
             string Adresse = textBoxAdresse.Text;
-            int Téléphone = int.Parse(maskedTextBoxTel.Text);
+            string Téléphone = maskedTextBoxTel.Text;
             string CodePostal = textBoxCp.Text;
-            string Commentaire = textBoxComm.Text; 
+            string Commentaire = textBoxComm.Text;
+            int id_site = int.Parse(textBoxidsite.Text);
             cn.Open();
-            cmd.CommandText = "Delete From SITES VALUES ";
+            cmd.CommandText = "Delete From Sites WHERE id = @site";
+            cmd.Parameters.AddWithValue("@site", id_site);
+            cmd.Connection = cn;
+            cmd.ExecuteNonQuery();
+
+            cn.Close();
         }
 
         private void buttonAjouter_Click(object sender, EventArgs e)
@@ -157,8 +171,8 @@ namespace PPE2
             {
                 case 1:
                     ajouter();
-                    listViewPlein();   
-
+                    listViewPlein();
+                    listView1.Clear();
 
                     break;
                 case 2:
@@ -178,6 +192,11 @@ namespace PPE2
             q = 3;
             modifierBoutton();
             Supprimer();
+        }
+
+        private void maskedTextBoxTel_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

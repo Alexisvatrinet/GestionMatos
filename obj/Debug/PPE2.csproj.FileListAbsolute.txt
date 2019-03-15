@@ -16,7 +16,6 @@ E:\Plein de fichiers\PPE2\obj\Debug\PPE2.FormSite.resources
 C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\bin\Debug\PPE2.exe.config
 C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\bin\Debug\PPE2.exe
 C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\bin\Debug\PPE2.pdb
-C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.csprojAssemblyReference.cache
 C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.Form1.resources
 C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.FormClient.resources
 C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.FormIntervention.resources
