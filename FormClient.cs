@@ -19,12 +19,12 @@ namespace PPE2
         private SqlConnection cn;
         private SqlCommand cmd;
         private SqlDataReader dr;
-
+        public int selectedid;
         private void desactiverBox()
         {
             textBoxAdresse.Enabled = false;
             textBoxMail.Enabled = false;
-            textBoxMail.Enabled = false;
+            textBoxNom.Enabled = false;
             maskedTextBoxTel.Enabled = false;
             buttonCancel.Enabled = false;
             buttonValider.Enabled = false;
@@ -34,7 +34,7 @@ namespace PPE2
         {
             textBoxAdresse.Enabled = true;
             textBoxMail.Enabled = true;
-            textBoxMail.Enabled = true;
+            textBoxNom.Enabled = true;
             maskedTextBoxTel.Enabled = true;
             buttonCancel.Enabled = true;
             buttonValider.Enabled = true;
@@ -71,6 +71,40 @@ namespace PPE2
             cn.Close();
         }
 
+        private void modifier()
+        {
+            cn = new SqlConnection(@"Server =.\SQLEXPRESS; Database = GestionMatos;  Integrated Security = SSPI; Connect Timeout = 5");
+            cmd = new SqlCommand();
+            string nom = textBoxNom.Text;
+            string adresse = textBoxAdresse.Text;
+            string mail = textBoxMail.Text;
+            string numero = maskedTextBoxTel.Text;
+            int id = int.Parse(textBoxIdSelect.Text);
+            cn.Open();
+            cmd.CommandText = "UPDATE Client SET nom = @nom,adresse = @adresse,telephone = @numero,mail = @Mail WHERE id = @id";
+            cmd.Connection = cn;
+            cmd.Parameters.AddWithValue("@nom", nom);
+            cmd.Parameters.AddWithValue("@adresse", adresse);
+            cmd.Parameters.AddWithValue("@numero", numero);
+            cmd.Parameters.AddWithValue("@mail", mail);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+
+        private void supprimer()
+        {
+            cn = new SqlConnection(@"Server =.\SQLEXPRESS; Database = GestionMatos;  Integrated Security = SSPI; Connect Timeout = 5");
+            cmd = new SqlCommand();
+            int selectid = int.Parse(textBoxIdSelect.Text);
+            cn.Open();
+            cmd.CommandText = "DELETE FROM Client WHERE id = @select";
+            cmd.Parameters.AddWithValue("@select", selectid);
+            cmd.Connection = cn;
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+
         private void ajouter()
         {
             cn = new SqlConnection(@"Server =.\SQLEXPRESS; Database = GestionMatos;  Integrated Security = SSPI; Connect Timeout = 5");
@@ -90,6 +124,11 @@ namespace PPE2
             cn.Close();
         }
 
+        private void clearlist()
+        {
+
+            listViewClient.Refresh();
+        }
         public FormClient()
         {
             InitializeComponent();
@@ -102,25 +141,45 @@ namespace PPE2
             viderBox();
         }
 
+        private void buttonModifier_Click(object sender, EventArgs e)
+        {
+            reactiverBox();
+            q = 2;
+        }
+
+        private void buttonSupprimer_Click(object sender, EventArgs e)
+        {
+            q = 3;
+            reactiverBox();
+        }
+
         private void buttonValider_Click(object sender, EventArgs e)
         {
             switch (q)
             {
                 case 1:
                     ajouter();
-                    listViewClient.Clear();
+                    listViewClient.Items.Clear();
                     listviewplein();
+                    desactiverBox();
                     break;
                 case 2:
-
+                    modifier();
+                    listViewClient.Items.Clear();
+                    listviewplein();
+                    desactiverBox();
                     break;
                 case 3:
-
+                    supprimer();
+                    listViewClient.Items.Clear();
+                    listviewplein();
+                    desactiverBox();
                     break;
                 default:
                     
                     break;
             }
+            q = 0;
         }
 
         private void textBoxTelephone_TextChanged(object sender, EventArgs e)
@@ -137,6 +196,8 @@ namespace PPE2
         private void FormClient_Load(object sender, EventArgs e)
         {
             listviewplein();
+            desactiverBox();
+            viderBox();
         }
 
         private void listViewClient_SelectedIndexChanged(object sender, EventArgs e)
@@ -148,23 +209,8 @@ namespace PPE2
                 textBoxNom.Text = objet.SubItems[0].Text;
                 textBoxMail.Text = objet.SubItems[3].Text;
                 maskedTextBoxTel.Text = objet.SubItems[2].Text;
-                
-            }
-        }
-
-        private void buttonModifier_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonSupprimer_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-
+                textBoxIdSelect.Text = objet.SubItems[1].Text;
+    }
         }
     }
 }

@@ -87,7 +87,7 @@ namespace PPE2
         private void buttonModifier_Click(object sender, EventArgs e)
         {
             q = 2;
-            modifierBoutton();
+            reactiverBox();
         }
 
         private void listViewPlein()
@@ -115,7 +115,9 @@ namespace PPE2
         private void FormSite_Load(object sender, EventArgs e)
         {
             listViewPlein();
-            
+            desactiverBox();
+            viderBox();
+
         }
 
         private void ajouter()
@@ -158,6 +160,28 @@ namespace PPE2
             cn.Close();
         }
 
+        private void modifier()
+        {
+            string ville = textBoxVille.Text;
+            string Adresse = textBoxAdresse.Text;
+            string Téléphone = maskedTextBoxTel.Text;
+            string CodePostal = textBoxCp.Text;
+            string Commentaire = textBoxComm.Text;
+            int id_site = int.Parse(textBoxidsite.Text);
+            cn.Open();
+            cmd.CommandText = "UPDATE Sites SET ville = @ville,Adresse = @Adresse,Téléphone = @Téléphone,CodePostal = @CodePostal WHERE id = @sites";
+            cmd.Connection = cn;
+            cmd.Parameters.AddWithValue("@ville", ville);
+            cmd.Parameters.AddWithValue("@Adresse", Adresse);
+            cmd.Parameters.AddWithValue("@Téléphone", Téléphone);
+            cmd.Parameters.AddWithValue("@CodePostal", CodePostal);
+            cmd.Parameters.AddWithValue("@site", id_site);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+
+
+        }
+
         private void buttonAjouter_Click(object sender, EventArgs e)
         {
             q = 1;
@@ -176,10 +200,16 @@ namespace PPE2
 
                     break;
                 case 2:
-
+                    modifier();
+                    listView1.Clear();
+                    listViewPlein();
+                    desactiverBox();
                     break;
                 case 3:
-
+                    Supprimer();
+                    listView1.Clear();
+                    listViewPlein();
+                    desactiverBox();
                     break;
                 default:
 
@@ -190,8 +220,7 @@ namespace PPE2
         private void buttonSupprimer_Click(object sender, EventArgs e)
         {
             q = 3;
-            modifierBoutton();
-            Supprimer();
+            reactiverBox();
         }
 
         private void maskedTextBoxTel_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)

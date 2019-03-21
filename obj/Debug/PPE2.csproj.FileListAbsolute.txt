@@ -27,3 +27,4 @@ C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.csproj.GenerateRe
 C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.csproj.CoreCompileInputs.cache
 C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.exe
 C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.pdb
+C:\Users\alexi\Desktop\IPSSI\PPE 2\GestionMatos\obj\Debug\PPE2.csprojAssemblyReference.cache
