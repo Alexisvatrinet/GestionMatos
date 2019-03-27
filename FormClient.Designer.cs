@@ -50,7 +50,6 @@
             this.telephone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.mail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.adresse = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.textBoxIdSelect = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelClient
@@ -81,7 +80,6 @@
             this.buttonModifier.TabIndex = 2;
             this.buttonModifier.Text = "Modifier";
             this.buttonModifier.UseVisualStyleBackColor = true;
-            this.buttonModifier.Click += new System.EventHandler(this.buttonModifier_Click);
             // 
             // buttonSupprimer
             // 
@@ -91,7 +89,6 @@
             this.buttonSupprimer.TabIndex = 3;
             this.buttonSupprimer.Text = "Supprimer";
             this.buttonSupprimer.UseVisualStyleBackColor = true;
-            this.buttonSupprimer.Click += new System.EventHandler(this.buttonSupprimer_Click);
             // 
             // button4
             // 
@@ -241,21 +238,11 @@
             this.adresse.Text = "adresse";
             this.adresse.Width = 0;
             // 
-            // textBoxIdSelect
-            // 
-            this.textBoxIdSelect.Enabled = false;
-            this.textBoxIdSelect.Location = new System.Drawing.Point(684, 98);
-            this.textBoxIdSelect.Name = "textBoxIdSelect";
-            this.textBoxIdSelect.Size = new System.Drawing.Size(23, 22);
-            this.textBoxIdSelect.TabIndex = 23;
-            this.textBoxIdSelect.TabStop = false;
-            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 508);
-            this.Controls.Add(this.textBoxIdSelect);
             this.Controls.Add(this.listViewClient);
             this.Controls.Add(this.textBoxMail);
             this.Controls.Add(this.maskedTextBoxTel);
@@ -308,6 +295,5 @@
         private System.Windows.Forms.ColumnHeader telephone;
         private System.Windows.Forms.ColumnHeader mail;
         private System.Windows.Forms.ColumnHeader adresse;
-        private System.Windows.Forms.TextBox textBoxIdSelect;
     }
 }

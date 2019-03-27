@@ -41,6 +41,10 @@
             this.buttonModifier = new System.Windows.Forms.Button();
             this.buttonAjouter = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.Plan = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Etat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Commentaire = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.idint = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelIntervention = new System.Windows.Forms.Label();
             this.textBoxAdresse = new System.Windows.Forms.TextBox();
             this.labelAdresse = new System.Windows.Forms.Label();
@@ -49,10 +53,12 @@
             this.labelClient = new System.Windows.Forms.Label();
             this.textBoxEtat = new System.Windows.Forms.TextBox();
             this.textBoxComm = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxClient = new System.Windows.Forms.TextBox();
             this.maskedTextBoxPlan = new System.Windows.Forms.MaskedTextBox();
-            this.Etat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Plan = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.textBoxIdSelect = new System.Windows.Forms.TextBox();
+            this.comboBoxClient = new System.Windows.Forms.ComboBox();
+            this.textBoxIdClient = new System.Windows.Forms.TextBox();
+            this.labelInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelMail
@@ -163,7 +169,9 @@
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Plan,
-            this.Etat});
+            this.Etat,
+            this.Commentaire,
+            this.idint});
             this.listView1.Location = new System.Drawing.Point(41, 73);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(252, 395);
@@ -171,6 +179,25 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // Plan
+            // 
+            this.Plan.Text = "Planifié";
+            this.Plan.Width = 135;
+            // 
+            // Etat
+            // 
+            this.Etat.Text = "Terminée";
+            // 
+            // Commentaire
+            // 
+            this.Commentaire.Text = "Commentaire";
+            this.Commentaire.Width = 0;
+            // 
+            // idint
+            // 
+            this.idint.Text = "id_int";
+            this.idint.Width = 0;
             // 
             // labelIntervention
             // 
@@ -240,43 +267,77 @@
             this.textBoxComm.Size = new System.Drawing.Size(212, 73);
             this.textBoxComm.TabIndex = 39;
             // 
-            // textBox4
+            // textBoxClient
             // 
-            this.textBox4.Location = new System.Drawing.Point(320, 168);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(222, 22);
-            this.textBox4.TabIndex = 37;
+            this.textBoxClient.Location = new System.Drawing.Point(320, 168);
+            this.textBoxClient.Name = "textBoxClient";
+            this.textBoxClient.Size = new System.Drawing.Size(222, 22);
+            this.textBoxClient.TabIndex = 37;
             // 
             // maskedTextBoxPlan
             // 
             this.maskedTextBoxPlan.Location = new System.Drawing.Point(611, 168);
-            this.maskedTextBoxPlan.Mask = "00/00/0000 00:00";
+            this.maskedTextBoxPlan.Mask = "00/00/0000 00:00:00";
             this.maskedTextBoxPlan.Name = "maskedTextBoxPlan";
             this.maskedTextBoxPlan.Size = new System.Drawing.Size(212, 22);
             this.maskedTextBoxPlan.TabIndex = 44;
             this.maskedTextBoxPlan.ValidatingType = typeof(System.DateTime);
             // 
-            // Etat
+            // textBoxIdSelect
             // 
-            this.Etat.Text = "Terminée";
+            this.textBoxIdSelect.Enabled = false;
+            this.textBoxIdSelect.Location = new System.Drawing.Point(320, 94);
+            this.textBoxIdSelect.Name = "textBoxIdSelect";
+            this.textBoxIdSelect.Size = new System.Drawing.Size(21, 22);
+            this.textBoxIdSelect.TabIndex = 45;
+            this.textBoxIdSelect.TabStop = false;
+            this.textBoxIdSelect.Text = "id";
+            this.textBoxIdSelect.Visible = false;
             // 
-            // Plan
+            // comboBoxClient
             // 
-            this.Plan.Text = "Planifié";
-            this.Plan.Width = 135;
+            this.comboBoxClient.Enabled = false;
+            this.comboBoxClient.FormattingEnabled = true;
+            this.comboBoxClient.Location = new System.Drawing.Point(320, 168);
+            this.comboBoxClient.Name = "comboBoxClient";
+            this.comboBoxClient.Size = new System.Drawing.Size(222, 24);
+            this.comboBoxClient.TabIndex = 46;
+            this.comboBoxClient.Visible = false;
+            // 
+            // textBoxIdClient
+            // 
+            this.textBoxIdClient.Enabled = false;
+            this.textBoxIdClient.Location = new System.Drawing.Point(347, 94);
+            this.textBoxIdClient.Name = "textBoxIdClient";
+            this.textBoxIdClient.Size = new System.Drawing.Size(30, 22);
+            this.textBoxIdClient.TabIndex = 47;
+            this.textBoxIdClient.Visible = false;
+            // 
+            // labelInfo
+            // 
+            this.labelInfo.AutoSize = true;
+            this.labelInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.labelInfo.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelInfo.Location = new System.Drawing.Point(317, 450);
+            this.labelInfo.Name = "labelInfo";
+            this.labelInfo.Size = new System.Drawing.Size(0, 20);
+            this.labelInfo.TabIndex = 48;
             // 
             // FormIntervention
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 508);
+            this.Controls.Add(this.labelInfo);
+            this.Controls.Add(this.textBoxIdClient);
+            this.Controls.Add(this.textBoxIdSelect);
             this.Controls.Add(this.maskedTextBoxPlan);
             this.Controls.Add(this.labelCommentaire);
             this.Controls.Add(this.labelEtat);
             this.Controls.Add(this.labelClient);
             this.Controls.Add(this.textBoxEtat);
             this.Controls.Add(this.textBoxComm);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBoxClient);
             this.Controls.Add(this.labelMail);
             this.Controls.Add(this.labelTelephone);
             this.Controls.Add(this.labelAdresse);
@@ -293,6 +354,7 @@
             this.Controls.Add(this.buttonAjouter);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.labelIntervention);
+            this.Controls.Add(this.comboBoxClient);
             this.Name = "FormIntervention";
             this.Text = "FormIntervention";
             this.Load += new System.EventHandler(this.FormIntervention_Load);
@@ -324,9 +386,15 @@
         private System.Windows.Forms.Label labelClient;
         private System.Windows.Forms.TextBox textBoxEtat;
         private System.Windows.Forms.TextBox textBoxComm;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxClient;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPlan;
         private System.Windows.Forms.ColumnHeader Etat;
         private System.Windows.Forms.ColumnHeader Plan;
+        private System.Windows.Forms.ColumnHeader Commentaire;
+        private System.Windows.Forms.ColumnHeader idint;
+        private System.Windows.Forms.TextBox textBoxIdSelect;
+        private System.Windows.Forms.ComboBox comboBoxClient;
+        private System.Windows.Forms.TextBox textBoxIdClient;
+        private System.Windows.Forms.Label labelInfo;
     }
 }

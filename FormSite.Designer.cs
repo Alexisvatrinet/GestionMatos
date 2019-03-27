@@ -287,10 +287,13 @@
             // 
             // textBoxidsite
             // 
+            this.textBoxidsite.Enabled = false;
             this.textBoxidsite.Location = new System.Drawing.Point(432, 382);
             this.textBoxidsite.Name = "textBoxidsite";
             this.textBoxidsite.Size = new System.Drawing.Size(100, 22);
             this.textBoxidsite.TabIndex = 67;
+            this.textBoxidsite.Visible = false;
+            this.textBoxidsite.TextChanged += new System.EventHandler(this.textBoxidsite_TextChanged);
             // 
             // FormSite
             // 

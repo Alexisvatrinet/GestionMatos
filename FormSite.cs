@@ -49,6 +49,21 @@ namespace PPE2
             buttonModifier.Enabled = false;
         }
 
+        private void reactiverButton()
+        {
+            textBoxVille.Enabled = false;
+            textBoxAdresse.Enabled = false;
+            maskedTextBoxTel.Enabled = false;
+            textBoxMail.Enabled = false;
+            textBoxCp.Enabled = false;
+            textBoxComm.Enabled = false;
+            buttonCancel.Enabled = false;
+            buttonValider.Enabled = false;
+            buttonSupprimer.Enabled = true;
+            buttonAjouter.Enabled = true;
+            buttonModifier.Enabled = true;
+        }
+
         private void viderBox()
         {
             textBoxVille.Text = "";
@@ -95,7 +110,7 @@ namespace PPE2
             cn = new SqlConnection(@"Server =.\SQLEXPRESS; Database = GestionMatos;  Integrated Security = SSPI; Connect Timeout = 5");
             cmd = new SqlCommand();
             cn.Open();
-            cmd.CommandText = "SELECT * FROM Sites";
+            cmd.CommandText = "SELECT * FROM Site";
             cmd.Connection = cn;
             dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -117,6 +132,7 @@ namespace PPE2
             listViewPlein();
             desactiverBox();
             viderBox();
+            reactiverButton();
 
         }
 
@@ -129,7 +145,7 @@ namespace PPE2
             string CodePostal = textBoxCp.Text;
             string Commentaire = textBoxComm.Text; 
             cn.Open();
-            cmd.CommandText = "INSERT INTO Sites VALUES (@Ville, @Adresse, @Téléphone, @Mail, @CodePostal, @Commentaire)";
+            cmd.CommandText = "INSERT INTO Site VALUES (@Ville, @Adresse, @Téléphone, @Mail, @CodePostal, @Commentaire)";
             cmd.Connection = cn;
 
             cmd.Parameters.AddWithValue("@Ville", Ville);
@@ -152,7 +168,7 @@ namespace PPE2
             string Commentaire = textBoxComm.Text;
             int id_site = int.Parse(textBoxidsite.Text);
             cn.Open();
-            cmd.CommandText = "Delete From Sites WHERE id = @site";
+            cmd.CommandText = "Delete From Site WHERE id = @site";
             cmd.Parameters.AddWithValue("@site", id_site);
             cmd.Connection = cn;
             cmd.ExecuteNonQuery();
@@ -169,7 +185,7 @@ namespace PPE2
             string Commentaire = textBoxComm.Text;
             int id_site = int.Parse(textBoxidsite.Text);
             cn.Open();
-            cmd.CommandText = "UPDATE Sites SET ville = @ville,Adresse = @Adresse,Téléphone = @Téléphone,CodePostal = @CodePostal WHERE id = @sites";
+            cmd.CommandText = "UPDATE Site SET ville = @ville,Adresse = @Adresse,Téléphone = @Téléphone,CodePostal = @CodePostal WHERE id = @site";
             cmd.Connection = cn;
             cmd.Parameters.AddWithValue("@ville", ville);
             cmd.Parameters.AddWithValue("@Adresse", Adresse);
@@ -195,21 +211,26 @@ namespace PPE2
             {
                 case 1:
                     ajouter();
+                    listView1.Items.Clear();
                     listViewPlein();
-                    listView1.Clear();
+                    desactiverBox();
+                    viderBox();
+                    reactiverButton();
 
                     break;
                 case 2:
                     modifier();
-                    listView1.Clear();
+                    listView1.Items.Clear();
                     listViewPlein();
                     desactiverBox();
+                    reactiverButton();
                     break;
                 case 3:
                     Supprimer();
-                    listView1.Clear();
+                    listView1.Items.Clear();
                     listViewPlein();
                     desactiverBox();
+                    reactiverButton();
                     break;
                 default:
 
@@ -224,6 +245,11 @@ namespace PPE2
         }
 
         private void maskedTextBoxTel_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void textBoxidsite_TextChanged(object sender, EventArgs e)
         {
 
         }
