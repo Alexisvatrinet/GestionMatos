@@ -62,7 +62,7 @@
     <Compile Include="FormIntervention.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormIntervention.Designer.cs">
+    <Compile Include="FormIntervention.designer.cs">
       <DependentUpon>FormIntervention.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMateriel.cs">

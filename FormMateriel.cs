@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Net.Mail;
 
 namespace PPE2
 {
@@ -15,10 +16,13 @@ namespace PPE2
     {
         private int id_mat;
         private int id_client;
-        public int q = 0;
+        private int q = 0;
+        private string testMail;
         private SqlConnection cn;
         private SqlCommand cmd;
         private SqlDataReader dr;
+        private MailAddress ma;
+
         public FormMateriel()
         {
             InitializeComponent();
@@ -57,6 +61,7 @@ namespace PPE2
             textBoxClient.Text = "";
             textBoxCat.Text = "";
             textBoxConst.Text = "";
+            textBoxInt.Text = "";
 
             comboBoxClient.Text = "";
             comboBoxCat.Text = "";
@@ -110,6 +115,27 @@ namespace PPE2
             comboBoxCat.Visible = true;
             comboBoxClient.Visible = true;
             comboBoxConst.Visible = true;
+        }
+
+        private void testBox()
+        {
+            if (textBoxNom.Text == "" || textBoxDesc.Text == "" || textBoxMtbf.Text == "" || textBoxDesc.Text == "" || textBoxIdCat.Text == "" || textBoxIdConst.Text == "")
+            {
+                buttonValider.Enabled = false;
+                if (q != 0)
+                {
+                    labelValider.Text = "Veuillez remplir toutes les champs pour activer ce boutton";
+                }
+                else
+                {
+                    labelValider.Text = "";
+                }
+            }
+            else if (textBoxNom.Text != "" && textBoxDesc.Text != "" && textBoxMtbf.Text != "" && textBoxDesc.Text != "" && textBoxIdCat.Text != "" && textBoxIdConst.Text != "")
+            {
+                buttonValider.Enabled = true;
+                labelValider.Text = "";
+            }
         }
 
         private void comboText()
@@ -180,6 +206,17 @@ namespace PPE2
         
         private void ajouter()
         {
+            try 
+            {
+                ma = new MailAddress(textBoxMail.Text);
+                testMail = "bon";
+            }
+            catch(FormatException)
+            {
+                testMail = "pasbon";
+            }
+            if(testMail == "bon")
+            {
             string nom = textBoxNom.Text;
             string site = textBoxSite.Text;
             string desc = textBoxDesc.Text;
@@ -199,32 +236,55 @@ namespace PPE2
             cmd.Parameters.AddWithValue("@id_Categorie",id_cat);
             cmd.ExecuteNonQuery();
             cn.Close();
+            }
+            else
+            {
+                labelFaux.Text = "L'adresse email entrée n'est pas valide: votre requête n'a pas été executée";
+                q = 0;
+            }
         }
 
         private void modifier()
         {
-            cn = new SqlConnection(@"Server =.\SQLEXPRESS; Database = GestionMatos;  Integrated Security = SSPI; Connect Timeout = 5");
-            cmd = new SqlCommand();
-            string nom = textBoxNom.Text;
-            string site = textBoxSite.Text;
-            string desc = textBoxDesc.Text;
-            int id_client = int.Parse(textBoxIdClient.Text);
-            int id_cat = int.Parse(textBoxIdCat.Text);
-            int id_const = int.Parse(textBoxIdConst.Text);
-            int mtbf = int.Parse(textBoxMtbf.Text);
-            cn.Open();
-            cmd.CommandText = "UPDATE Materiel SET nom = @nom,site = @site,mtbf = @mtbf,description = @desc,id_client = @id_client,id_constructeur = @id_const, id_categorie = @id_cat WHERE id = @id";
-            cmd.Connection = cn;
-            cmd.Parameters.AddWithValue("@nom", nom);
-            cmd.Parameters.AddWithValue("@site", site);
-            cmd.Parameters.AddWithValue("@mtbf", mtbf);
-            cmd.Parameters.AddWithValue("@desc", desc);
-            cmd.Parameters.AddWithValue("@id_client", id_client);
-            cmd.Parameters.AddWithValue("@id_cat", id_cat);
-            cmd.Parameters.AddWithValue("@id_const", id_const);
-            cmd.Parameters.AddWithValue("@id", id_mat);
-            cmd.ExecuteNonQuery();
-            cn.Close();
+            try
+            {
+                ma = new MailAddress(textBoxMail.Text);
+                testMail = "bon";
+            }
+            catch (FormatException)
+            {
+                testMail = "pasbon";
+            }
+            if (testMail == "bon")
+            {
+                cn = new SqlConnection(@"Server =.\SQLEXPRESS; Database = GestionMatos;  Integrated Security = SSPI; Connect Timeout = 5");
+                cmd = new SqlCommand();
+                string nom = textBoxNom.Text;
+                string site = textBoxSite.Text;
+                string desc = textBoxDesc.Text;
+                int id_client = int.Parse(textBoxIdClient.Text);
+                int id_cat = int.Parse(textBoxIdCat.Text);
+                int id_const = int.Parse(textBoxIdConst.Text);
+                int mtbf = int.Parse(textBoxMtbf.Text);
+                cn.Open();
+                cmd.CommandText = "UPDATE Materiel SET nom = @nom,site = @site,mtbf = @mtbf,description = @desc,id_client = @id_client,id_constructeur = @id_const, id_categorie = @id_cat WHERE id = @id";
+                cmd.Connection = cn;
+                cmd.Parameters.AddWithValue("@nom", nom);
+                cmd.Parameters.AddWithValue("@site", site);
+                cmd.Parameters.AddWithValue("@mtbf", mtbf);
+                cmd.Parameters.AddWithValue("@desc", desc);
+                cmd.Parameters.AddWithValue("@id_client", id_client);
+                cmd.Parameters.AddWithValue("@id_cat", id_cat);
+                cmd.Parameters.AddWithValue("@id_const", id_const);
+                cmd.Parameters.AddWithValue("@id", id_mat);
+                cmd.ExecuteNonQuery();
+                cn.Close();
+            }
+            else
+            {
+                q = 0;
+                labelFaux.Text = "L'adresse email n'est pas conforme votre requête n'a pas été éxecuté";
+            }
         }
 
         private void supprimer()
@@ -243,7 +303,8 @@ namespace PPE2
             cn = new SqlConnection(@"Server =.\SQLEXPRESS; Database = GestionMatos;  Integrated Security = SSPI; Connect Timeout = 5");
             cmd = new SqlCommand();
             cn.Open();
-            cmd.CommandText = "SELECT id_client FROM materiel WHERE id = " + id_mat;
+            cmd.CommandText = "SELECT id_client FROM materiel WHERE id = @id_mat";
+            cmd.Parameters.AddWithValue("@id_mat", id_mat);
             cmd.Connection = cn;
             dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -252,7 +313,8 @@ namespace PPE2
             }
             cn.Close();
             cn.Open();
-            cmd.CommandText = "SELECT * FROM client WHERE id = " + id_client;
+            cmd.CommandText = "SELECT * FROM client WHERE id = @id_client";
+            cmd.Parameters.AddWithValue("@id_client", id_client);
             cmd.Connection = cn;
             dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -263,7 +325,8 @@ namespace PPE2
             cn.Close();
         }
         //----------------------------------------------------------------------------------
-        
+        //Au debut de la page je desactive ceratine box et bouton je rempli ma listView 
+        //et mes comboBox avec la base de données
         private void FormMateriel_Load(object sender, EventArgs e)
         {
             desactiverBox(); 
@@ -284,6 +347,7 @@ namespace PPE2
                 textBoxIdClient.Text = objet.SubItems[5].Text;
                 textBoxIdConst.Text = objet.SubItems[6].Text;
                 textBoxIdCat.Text = objet.SubItems[7].Text;
+                textBoxIdInt.Text = objet.SubItems[8].Text;
                 int idutil = int.Parse(textBoxIdClient.Text);
                 string categorie = comboBoxCat.Text;
                 cn.Close();
@@ -295,12 +359,12 @@ namespace PPE2
                 while ((dr.IsClosed == false) && (dr.Read()))
                 {
                     int categorieId = dr.GetInt32(0);
-                    textBoxIdCat.Text = categorieId.ToString();
+                    //textBoxIdCat.Text = categorieId.ToString();
                 }
                 cn.Close();
                 int idcat = int.Parse(textBoxIdCat.Text);
                 cn.Open();
-                cmd.CommandText = "SELECT objet FROM categorie WHERE id =" + idcat;
+                cmd.CommandText = "SELECT id, objet FROM categorie WHERE id =" + idcat;
                 cmd.Connection = cn;
                 dr = cmd.ExecuteReader();
                 while ((dr.IsClosed == false) && (dr.Read()))
@@ -317,11 +381,34 @@ namespace PPE2
                     textBoxConst.Text = dr[0].ToString();
                 }
                 cn.Close();
+                textBoxInt.Text = "Pas d'intervention planifiée";
+                if (textBoxIdInt.Text != "")
+                {
+                    int idInt = int.Parse(textBoxIdInt.Text);
+                    cn.Open();
+                    cmd.CommandText = "SELECT etat, planifie FROM intervention WHERE id = @idInt";
+                    cmd.Parameters.AddWithValue("@idInt", idInt);
+                    dr = cmd.ExecuteReader();
+                    while ((dr.IsClosed == false) && (dr.Read()))
+                    {
+                        bool etat = Convert.ToBoolean(dr["etat"]);
+                        if (Convert.ToBoolean(dr["etat"]) == false)
+                        {
+                            textBoxInt.Text = "Une intervention est planifiée";
+                        }
+                        else if (Convert.ToBoolean(dr["etat"]) == true)
+                        {
+                            textBoxInt.Text = "L'intervention à déjà été réalisée";
+                        }
+                    }
+                    cn.Close();
+                }
                 client();
                 buttonModifier.Enabled = true;
                 buttonSupprimer.Enabled = true;
             }
         }
+        //-----------------------------------------------------------
         // Partie des boutton
         private void buttonAjouter_Click(object sender, EventArgs e)
         {
@@ -330,21 +417,31 @@ namespace PPE2
             activerBox();
             viderBox();
             comboText();
+            buttonValider.Enabled = false;
+            labelInt.Visible = false;
+            textBoxInt.Visible = false;
+            labelEtat.Text = "Cliquer sur VALIDER pour AJOUTER un objet à la liste";
         }
 
         private void buttonModifier_Click(object sender, EventArgs e)
         {
+            string nom = textBoxNom.Text;
             q = 2;
             modifierBoutton();
             activerBox();
             comboText();
+            labelInt.Visible = false;
+            textBoxInt.Visible = false;
+            labelEtat.Text = "Cliquer sur VALIDER pour MODIFIER l'objet: " + nom;
         }
 
         private void buttonSupprimer_Click(object sender, EventArgs e)
         {
+            string nom = textBoxNom.Text;
             q = 3;
             modifierBoutton();
             listView1.Enabled = false;
+            labelEtat.Text = "Cliquer sur VALIDER pour MODIFIER l'objet: " + nom;
         }
 
         private void buttonValider_Click(object sender, EventArgs e)
@@ -357,6 +454,7 @@ namespace PPE2
                     ajouter();
                     listView1.Items.Clear();
                     listViewPlein();
+                    label3.Text = "";
                     break;
                 case 2:
                     modifier();
@@ -378,10 +476,13 @@ namespace PPE2
             buttonModifier.Enabled = false;
             buttonSupprimer.Enabled = false;
             listView1.Enabled = true;
+            textBoxInt.Visible = true;
+            labelInt.Visible = true;
             q = 0;
+            labelValider.Text = "";
+            labelEtat.Text = "";
         }
-
-
+        
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             demodifierBoutton();
@@ -390,9 +491,12 @@ namespace PPE2
             buttonModifier.Enabled = false;
             buttonSupprimer.Enabled = false;
             listView1.Enabled = true;
+            textBoxInt.Visible = true;
+            labelInt.Visible = true;
             q =  0;
+            labelValider.Text = "";
         }
-
+        //---------------------------------------------------------------------
         // Permet de remplir des variables avec l'Id relié au nom dans la bdd
         private void comboBoxConst_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -443,6 +547,70 @@ namespace PPE2
                 textBoxIdCat.Text = catId.ToString();
             }
             cn.Close();
+        }
+        // Suite de test pour voir si tout les chemps on bien été remplis
+        private void textBoxNom_TextChanged(object sender, EventArgs e)
+        {
+            if (q != 0)
+            {
+                testBox();
+            }
+        }
+
+        private void textBoxSite_TextChanged(object sender, EventArgs e)
+        {
+            if (q != 0)
+            {
+                testBox();
+            }
+        }
+
+        private void textBoxMtbf_TextChanged(object sender, EventArgs e)
+        {
+            if (q != 0)
+            {
+                testBox();
+            }
+        }
+
+        private void textBoxMail_TextChanged(object sender, EventArgs e)
+        {
+            if (q != 0)
+            {
+                testBox();
+            }
+        }
+
+        private void textBoxIdClient_TextChanged(object sender, EventArgs e)
+        {
+            if (q != 0)
+            {
+                testBox();
+            }
+        }
+
+        private void textBoxIdCat_TextChanged(object sender, EventArgs e)
+        {
+            if (q != 0)
+            {
+                testBox();
+            }
+        }
+
+        private void textBoxIdConst_TextChanged(object sender, EventArgs e)
+        {
+            if (q != 0)
+            {
+                testBox();
+            }
+        }
+
+        private void textBoxDesc_TextChanged(object sender, EventArgs e)
+        {
+            if (q != 0)
+            {
+                testBox();
+            }
         }
     }
 }

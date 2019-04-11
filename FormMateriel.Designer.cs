@@ -50,6 +50,7 @@
             this.id_utilisateur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.id_constructeur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.id_categorie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.id_intervention = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelMateriel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxMail = new System.Windows.Forms.TextBox();
@@ -67,7 +68,13 @@
             this.textBoxClient = new System.Windows.Forms.TextBox();
             this.textBoxCat = new System.Windows.Forms.TextBox();
             this.textBoxConst = new System.Windows.Forms.TextBox();
-            this.id_intervention = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.textBoxInt = new System.Windows.Forms.TextBox();
+            this.labelInt = new System.Windows.Forms.Label();
+            this.textBoxIdInt = new System.Windows.Forms.TextBox();
+            this.labelFaux = new System.Windows.Forms.Label();
+            this.labelValider = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelEtat = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelClient
@@ -111,28 +118,31 @@
             this.textBoxSite.Location = new System.Drawing.Point(294, 170);
             this.textBoxSite.Name = "textBoxSite";
             this.textBoxSite.Size = new System.Drawing.Size(265, 22);
-            this.textBoxSite.TabIndex = 3;
+            this.textBoxSite.TabIndex = 7;
+            this.textBoxSite.TextChanged += new System.EventHandler(this.textBoxSite_TextChanged);
             // 
             // textBoxMtbf
             // 
             this.textBoxMtbf.Location = new System.Drawing.Point(294, 224);
             this.textBoxMtbf.Name = "textBoxMtbf";
             this.textBoxMtbf.Size = new System.Drawing.Size(265, 22);
-            this.textBoxMtbf.TabIndex = 4;
+            this.textBoxMtbf.TabIndex = 8;
+            this.textBoxMtbf.TextChanged += new System.EventHandler(this.textBoxMtbf_TextChanged);
             // 
             // textBoxNom
             // 
             this.textBoxNom.Location = new System.Drawing.Point(294, 114);
             this.textBoxNom.Name = "textBoxNom";
             this.textBoxNom.Size = new System.Drawing.Size(265, 22);
-            this.textBoxNom.TabIndex = 2;
+            this.textBoxNom.TabIndex = 6;
+            this.textBoxNom.TextChanged += new System.EventHandler(this.textBoxNom_TextChanged);
             // 
             // buttonValider
             // 
             this.buttonValider.Location = new System.Drawing.Point(533, 399);
             this.buttonValider.Name = "buttonValider";
             this.buttonValider.Size = new System.Drawing.Size(125, 44);
-            this.buttonValider.TabIndex = 10;
+            this.buttonValider.TabIndex = 15;
             this.buttonValider.Text = "Valider";
             this.buttonValider.UseVisualStyleBackColor = true;
             this.buttonValider.Click += new System.EventHandler(this.buttonValider_Click);
@@ -142,7 +152,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(668, 399);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(125, 44);
-            this.buttonCancel.TabIndex = 11;
+            this.buttonCancel.TabIndex = 16;
             this.buttonCancel.Text = "Annuler";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -152,7 +162,7 @@
             this.buttonInt.Location = new System.Drawing.Point(726, 32);
             this.buttonInt.Name = "buttonInt";
             this.buttonInt.Size = new System.Drawing.Size(108, 38);
-            this.buttonInt.TabIndex = 25;
+            this.buttonInt.TabIndex = 5;
             this.buttonInt.Text = "Intervention";
             this.buttonInt.UseVisualStyleBackColor = true;
             // 
@@ -162,7 +172,7 @@
             this.buttonSupprimer.Location = new System.Drawing.Point(571, 32);
             this.buttonSupprimer.Name = "buttonSupprimer";
             this.buttonSupprimer.Size = new System.Drawing.Size(91, 38);
-            this.buttonSupprimer.TabIndex = 14;
+            this.buttonSupprimer.TabIndex = 3;
             this.buttonSupprimer.Text = "Supprimer";
             this.buttonSupprimer.UseVisualStyleBackColor = true;
             this.buttonSupprimer.Click += new System.EventHandler(this.buttonSupprimer_Click);
@@ -173,7 +183,7 @@
             this.buttonModifier.Location = new System.Drawing.Point(474, 32);
             this.buttonModifier.Name = "buttonModifier";
             this.buttonModifier.Size = new System.Drawing.Size(91, 38);
-            this.buttonModifier.TabIndex = 13;
+            this.buttonModifier.TabIndex = 2;
             this.buttonModifier.Text = "Modifier";
             this.buttonModifier.UseVisualStyleBackColor = true;
             this.buttonModifier.Click += new System.EventHandler(this.buttonModifier_Click);
@@ -183,7 +193,7 @@
             this.buttonAjouter.Location = new System.Drawing.Point(377, 32);
             this.buttonAjouter.Name = "buttonAjouter";
             this.buttonAjouter.Size = new System.Drawing.Size(91, 38);
-            this.buttonAjouter.TabIndex = 12;
+            this.buttonAjouter.TabIndex = 1;
             this.buttonAjouter.Text = "Ajouter";
             this.buttonAjouter.UseVisualStyleBackColor = true;
             this.buttonAjouter.Click += new System.EventHandler(this.buttonAjouter_Click);
@@ -204,7 +214,7 @@
             this.listView1.Location = new System.Drawing.Point(41, 93);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(220, 395);
-            this.listView1.TabIndex = 1;
+            this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
@@ -248,6 +258,11 @@
             this.id_categorie.Text = "id_categorie";
             this.id_categorie.Width = 0;
             // 
+            // id_intervention
+            // 
+            this.id_intervention.Text = "id_intervention";
+            this.id_intervention.Width = 0;
+            // 
             // labelMateriel
             // 
             this.labelMateriel.AutoSize = true;
@@ -272,7 +287,8 @@
             this.textBoxMail.Location = new System.Drawing.Point(294, 332);
             this.textBoxMail.Name = "textBoxMail";
             this.textBoxMail.Size = new System.Drawing.Size(265, 22);
-            this.textBoxMail.TabIndex = 6;
+            this.textBoxMail.TabIndex = 10;
+            this.textBoxMail.TextChanged += new System.EventHandler(this.textBoxMail_TextChanged);
             // 
             // textBoxDesc
             // 
@@ -280,7 +296,8 @@
             this.textBoxDesc.Multiline = true;
             this.textBoxDesc.Name = "textBoxDesc";
             this.textBoxDesc.Size = new System.Drawing.Size(249, 79);
-            this.textBoxDesc.TabIndex = 7;
+            this.textBoxDesc.TabIndex = 11;
+            this.textBoxDesc.TextChanged += new System.EventHandler(this.textBoxDesc_TextChanged);
             // 
             // labelDescription
             // 
@@ -298,7 +315,7 @@
             this.comboBoxCat.Location = new System.Drawing.Point(585, 222);
             this.comboBoxCat.Name = "comboBoxCat";
             this.comboBoxCat.Size = new System.Drawing.Size(235, 24);
-            this.comboBoxCat.TabIndex = 8;
+            this.comboBoxCat.TabIndex = 12;
             this.comboBoxCat.Visible = false;
             this.comboBoxCat.SelectedIndexChanged += new System.EventHandler(this.comboBoxCat_SelectedIndexChanged);
             // 
@@ -327,20 +344,21 @@
             this.comboBoxConst.Location = new System.Drawing.Point(585, 275);
             this.comboBoxConst.Name = "comboBoxConst";
             this.comboBoxConst.Size = new System.Drawing.Size(235, 24);
-            this.comboBoxConst.TabIndex = 9;
+            this.comboBoxConst.TabIndex = 13;
             this.comboBoxConst.Visible = false;
             this.comboBoxConst.SelectedIndexChanged += new System.EventHandler(this.comboBoxConst_SelectedIndexChanged);
             // 
             // textBoxIdCat
             // 
             this.textBoxIdCat.Enabled = false;
-            this.textBoxIdCat.Location = new System.Drawing.Point(324, 438);
+            this.textBoxIdCat.Location = new System.Drawing.Point(307, 466);
             this.textBoxIdCat.Name = "textBoxIdCat";
             this.textBoxIdCat.ShortcutsEnabled = false;
-            this.textBoxIdCat.Size = new System.Drawing.Size(23, 22);
+            this.textBoxIdCat.Size = new System.Drawing.Size(22, 22);
             this.textBoxIdCat.TabIndex = 47;
             this.textBoxIdCat.TabStop = false;
             this.textBoxIdCat.Visible = false;
+            this.textBoxIdCat.TextChanged += new System.EventHandler(this.textBoxIdCat_TextChanged);
             // 
             // comboBoxClient
             // 
@@ -349,40 +367,41 @@
             this.comboBoxClient.Location = new System.Drawing.Point(294, 273);
             this.comboBoxClient.Name = "comboBoxClient";
             this.comboBoxClient.Size = new System.Drawing.Size(265, 24);
-            this.comboBoxClient.TabIndex = 5;
+            this.comboBoxClient.TabIndex = 9;
             this.comboBoxClient.Visible = false;
             this.comboBoxClient.SelectedIndexChanged += new System.EventHandler(this.comboBoxClient_SelectedIndexChanged);
             // 
             // textBoxIdClient
             // 
             this.textBoxIdClient.Enabled = false;
-            this.textBoxIdClient.Location = new System.Drawing.Point(294, 438);
+            this.textBoxIdClient.Location = new System.Drawing.Point(275, 466);
             this.textBoxIdClient.Name = "textBoxIdClient";
-            this.textBoxIdClient.Size = new System.Drawing.Size(23, 22);
+            this.textBoxIdClient.Size = new System.Drawing.Size(22, 22);
             this.textBoxIdClient.TabIndex = 49;
             this.textBoxIdClient.TabStop = false;
             this.textBoxIdClient.Visible = false;
+            this.textBoxIdClient.TextChanged += new System.EventHandler(this.textBoxIdClient_TextChanged);
             // 
             // textBoxIdConst
             // 
             this.textBoxIdConst.Enabled = false;
-            this.textBoxIdConst.Location = new System.Drawing.Point(353, 438);
+            this.textBoxIdConst.Location = new System.Drawing.Point(338, 466);
             this.textBoxIdConst.Name = "textBoxIdConst";
             this.textBoxIdConst.ShortcutsEnabled = false;
-            this.textBoxIdConst.Size = new System.Drawing.Size(23, 22);
+            this.textBoxIdConst.Size = new System.Drawing.Size(22, 22);
             this.textBoxIdConst.TabIndex = 50;
             this.textBoxIdConst.TabStop = false;
             this.textBoxIdConst.Visible = false;
+            this.textBoxIdConst.TextChanged += new System.EventHandler(this.textBoxIdConst_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(284, 415);
+            this.label2.Location = new System.Drawing.Point(268, 446);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 17);
+            this.label2.Size = new System.Drawing.Size(123, 17);
             this.label2.TabIndex = 51;
-            this.label2.Text = "Client cat const";
-            this.label2.Visible = false;
+            this.label2.Text = "Client cat const int";
             // 
             // textBoxClient
             // 
@@ -405,16 +424,82 @@
             this.textBoxConst.Size = new System.Drawing.Size(235, 22);
             this.textBoxConst.TabIndex = 54;
             // 
-            // id_intervention
+            // textBoxInt
             // 
-            this.id_intervention.Text = "id_intervention";
-            this.id_intervention.Width = 0;
+            this.textBoxInt.Enabled = false;
+            this.textBoxInt.Location = new System.Drawing.Point(590, 331);
+            this.textBoxInt.Name = "textBoxInt";
+            this.textBoxInt.Size = new System.Drawing.Size(230, 22);
+            this.textBoxInt.TabIndex = 14;
+            // 
+            // labelInt
+            // 
+            this.labelInt.AutoSize = true;
+            this.labelInt.Location = new System.Drawing.Point(587, 310);
+            this.labelInt.Name = "labelInt";
+            this.labelInt.Size = new System.Drawing.Size(82, 17);
+            this.labelInt.TabIndex = 56;
+            this.labelInt.Text = "Intervention";
+            // 
+            // textBoxIdInt
+            // 
+            this.textBoxIdInt.Enabled = false;
+            this.textBoxIdInt.Location = new System.Drawing.Point(369, 466);
+            this.textBoxIdInt.Name = "textBoxIdInt";
+            this.textBoxIdInt.ShortcutsEnabled = false;
+            this.textBoxIdInt.Size = new System.Drawing.Size(22, 22);
+            this.textBoxIdInt.TabIndex = 57;
+            this.textBoxIdInt.TabStop = false;
+            this.textBoxIdInt.Visible = false;
+            // 
+            // labelFaux
+            // 
+            this.labelFaux.AutoSize = true;
+            this.labelFaux.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F);
+            this.labelFaux.ForeColor = System.Drawing.Color.Red;
+            this.labelFaux.Location = new System.Drawing.Point(291, 397);
+            this.labelFaux.Name = "labelFaux";
+            this.labelFaux.Size = new System.Drawing.Size(0, 18);
+            this.labelFaux.TabIndex = 58;
+            // 
+            // labelValider
+            // 
+            this.labelValider.AutoSize = true;
+            this.labelValider.Location = new System.Drawing.Point(448, 455);
+            this.labelValider.Name = "labelValider";
+            this.labelValider.Size = new System.Drawing.Size(0, 17);
+            this.labelValider.TabIndex = 59;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(587, 358);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 17);
+            this.label3.TabIndex = 60;
+            // 
+            // labelEtat
+            // 
+            this.labelEtat.AutoSize = true;
+            this.labelEtat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F);
+            this.labelEtat.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.labelEtat.Location = new System.Drawing.Point(448, 368);
+            this.labelEtat.Name = "labelEtat";
+            this.labelEtat.Size = new System.Drawing.Size(0, 18);
+            this.labelEtat.TabIndex = 61;
             // 
             // FormMateriel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 508);
+            this.Controls.Add(this.labelEtat);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelValider);
+            this.Controls.Add(this.labelFaux);
+            this.Controls.Add(this.textBoxIdInt);
+            this.Controls.Add(this.labelInt);
+            this.Controls.Add(this.textBoxInt);
             this.Controls.Add(this.textBoxConst);
             this.Controls.Add(this.textBoxCat);
             this.Controls.Add(this.textBoxClient);
@@ -496,5 +581,12 @@
         private System.Windows.Forms.TextBox textBoxCat;
         private System.Windows.Forms.TextBox textBoxConst;
         private System.Windows.Forms.ColumnHeader id_intervention;
+        private System.Windows.Forms.TextBox textBoxInt;
+        private System.Windows.Forms.Label labelInt;
+        private System.Windows.Forms.TextBox textBoxIdInt;
+        private System.Windows.Forms.Label labelFaux;
+        private System.Windows.Forms.Label labelValider;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelEtat;
     }
 }

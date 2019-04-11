@@ -35,8 +35,6 @@
             this.textBoxMail = new System.Windows.Forms.TextBox();
             this.buttonValider = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.buttonSupprimer = new System.Windows.Forms.Button();
             this.buttonModifier = new System.Windows.Forms.Button();
             this.buttonAjouter = new System.Windows.Forms.Button();
@@ -56,15 +54,21 @@
             this.textBoxClient = new System.Windows.Forms.TextBox();
             this.maskedTextBoxPlan = new System.Windows.Forms.MaskedTextBox();
             this.textBoxIdSelect = new System.Windows.Forms.TextBox();
-            this.comboBoxClient = new System.Windows.Forms.ComboBox();
             this.textBoxIdClient = new System.Windows.Forms.TextBox();
             this.labelInfo = new System.Windows.Forms.Label();
+            this.labelValider = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxObjet = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxIdObjet = new System.Windows.Forms.TextBox();
+            this.textBoxObjet = new System.Windows.Forms.TextBox();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.SuspendLayout();
             // 
             // labelMail
             // 
             this.labelMail.AutoSize = true;
-            this.labelMail.Location = new System.Drawing.Point(317, 309);
+            this.labelMail.Location = new System.Drawing.Point(318, 250);
             this.labelMail.Name = "labelMail";
             this.labelMail.Size = new System.Drawing.Size(33, 17);
             this.labelMail.TabIndex = 36;
@@ -73,7 +77,7 @@
             // labelTelephone
             // 
             this.labelTelephone.AutoSize = true;
-            this.labelTelephone.Location = new System.Drawing.Point(317, 258);
+            this.labelTelephone.Location = new System.Drawing.Point(318, 199);
             this.labelTelephone.Name = "labelTelephone";
             this.labelTelephone.Size = new System.Drawing.Size(76, 17);
             this.labelTelephone.TabIndex = 35;
@@ -82,7 +86,7 @@
             // labelPlanifie
             // 
             this.labelPlanifie.AutoSize = true;
-            this.labelPlanifie.Location = new System.Drawing.Point(608, 148);
+            this.labelPlanifie.Location = new System.Drawing.Point(584, 255);
             this.labelPlanifie.Name = "labelPlanifie";
             this.labelPlanifie.Size = new System.Drawing.Size(77, 17);
             this.labelPlanifie.TabIndex = 33;
@@ -90,80 +94,67 @@
             // 
             // textBoxTelephone
             // 
-            this.textBoxTelephone.Location = new System.Drawing.Point(320, 278);
+            this.textBoxTelephone.Location = new System.Drawing.Point(321, 219);
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(222, 22);
-            this.textBoxTelephone.TabIndex = 29;
+            this.textBoxTelephone.TabIndex = 7;
             // 
             // textBoxMail
             // 
-            this.textBoxMail.Location = new System.Drawing.Point(320, 329);
+            this.textBoxMail.Location = new System.Drawing.Point(321, 270);
             this.textBoxMail.Name = "textBoxMail";
             this.textBoxMail.Size = new System.Drawing.Size(222, 22);
-            this.textBoxMail.TabIndex = 30;
+            this.textBoxMail.TabIndex = 8;
             // 
             // buttonValider
             // 
-            this.buttonValider.Location = new System.Drawing.Point(533, 399);
+            this.buttonValider.Location = new System.Drawing.Point(523, 424);
             this.buttonValider.Name = "buttonValider";
             this.buttonValider.Size = new System.Drawing.Size(129, 44);
-            this.buttonValider.TabIndex = 31;
+            this.buttonValider.TabIndex = 13;
             this.buttonValider.Text = "Valider";
             this.buttonValider.UseVisualStyleBackColor = true;
+            this.buttonValider.Click += new System.EventHandler(this.buttonValider_Click);
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(668, 399);
+            this.buttonCancel.Location = new System.Drawing.Point(658, 424);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(129, 44);
-            this.buttonCancel.TabIndex = 32;
+            this.buttonCancel.TabIndex = 14;
             this.buttonCancel.Text = "Annuler";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(682, 25);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(91, 38);
-            this.button5.TabIndex = 26;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(585, 25);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(91, 38);
-            this.button4.TabIndex = 25;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSupprimer
             // 
-            this.buttonSupprimer.Location = new System.Drawing.Point(488, 25);
+            this.buttonSupprimer.Location = new System.Drawing.Point(658, 39);
             this.buttonSupprimer.Name = "buttonSupprimer";
             this.buttonSupprimer.Size = new System.Drawing.Size(91, 38);
-            this.buttonSupprimer.TabIndex = 24;
+            this.buttonSupprimer.TabIndex = 3;
             this.buttonSupprimer.Text = "Supprimer";
             this.buttonSupprimer.UseVisualStyleBackColor = true;
+            this.buttonSupprimer.Click += new System.EventHandler(this.buttonSupprimer_Click);
             // 
             // buttonModifier
             // 
-            this.buttonModifier.Location = new System.Drawing.Point(391, 25);
+            this.buttonModifier.Location = new System.Drawing.Point(561, 39);
             this.buttonModifier.Name = "buttonModifier";
             this.buttonModifier.Size = new System.Drawing.Size(91, 38);
-            this.buttonModifier.TabIndex = 22;
+            this.buttonModifier.TabIndex = 2;
             this.buttonModifier.Text = "Modifier";
             this.buttonModifier.UseVisualStyleBackColor = true;
+            this.buttonModifier.Click += new System.EventHandler(this.buttonModifier_Click);
             // 
             // buttonAjouter
             // 
-            this.buttonAjouter.Location = new System.Drawing.Point(294, 25);
+            this.buttonAjouter.Location = new System.Drawing.Point(464, 39);
             this.buttonAjouter.Name = "buttonAjouter";
             this.buttonAjouter.Size = new System.Drawing.Size(91, 38);
-            this.buttonAjouter.TabIndex = 21;
+            this.buttonAjouter.TabIndex = 1;
             this.buttonAjouter.Text = "Ajouter";
             this.buttonAjouter.UseVisualStyleBackColor = true;
+            this.buttonAjouter.Click += new System.EventHandler(this.buttonAjouter_Click);
             // 
             // listView1
             // 
@@ -172,10 +163,11 @@
             this.Etat,
             this.Commentaire,
             this.idint});
+            this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(41, 73);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(252, 395);
-            this.listView1.TabIndex = 23;
+            this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
@@ -211,15 +203,15 @@
             // 
             // textBoxAdresse
             // 
-            this.textBoxAdresse.Location = new System.Drawing.Point(320, 224);
+            this.textBoxAdresse.Location = new System.Drawing.Point(321, 165);
             this.textBoxAdresse.Name = "textBoxAdresse";
             this.textBoxAdresse.Size = new System.Drawing.Size(222, 22);
-            this.textBoxAdresse.TabIndex = 28;
+            this.textBoxAdresse.TabIndex = 6;
             // 
             // labelAdresse
             // 
             this.labelAdresse.AutoSize = true;
-            this.labelAdresse.Location = new System.Drawing.Point(317, 204);
+            this.labelAdresse.Location = new System.Drawing.Point(318, 145);
             this.labelAdresse.Name = "labelAdresse";
             this.labelAdresse.Size = new System.Drawing.Size(60, 17);
             this.labelAdresse.TabIndex = 34;
@@ -228,7 +220,7 @@
             // labelCommentaire
             // 
             this.labelCommentaire.AutoSize = true;
-            this.labelCommentaire.Location = new System.Drawing.Point(608, 258);
+            this.labelCommentaire.Location = new System.Drawing.Point(584, 89);
             this.labelCommentaire.Name = "labelCommentaire";
             this.labelCommentaire.Size = new System.Drawing.Size(91, 17);
             this.labelCommentaire.TabIndex = 43;
@@ -237,7 +229,7 @@
             // labelEtat
             // 
             this.labelEtat.AutoSize = true;
-            this.labelEtat.Location = new System.Drawing.Point(608, 204);
+            this.labelEtat.Location = new System.Drawing.Point(584, 199);
             this.labelEtat.Name = "labelEtat";
             this.labelEtat.Size = new System.Drawing.Size(33, 17);
             this.labelEtat.TabIndex = 42;
@@ -246,7 +238,7 @@
             // labelClient
             // 
             this.labelClient.AutoSize = true;
-            this.labelClient.Location = new System.Drawing.Point(317, 148);
+            this.labelClient.Location = new System.Drawing.Point(318, 301);
             this.labelClient.Name = "labelClient";
             this.labelClient.Size = new System.Drawing.Size(43, 17);
             this.labelClient.TabIndex = 41;
@@ -254,39 +246,42 @@
             // 
             // textBoxEtat
             // 
-            this.textBoxEtat.Location = new System.Drawing.Point(611, 224);
+            this.textBoxEtat.Location = new System.Drawing.Point(587, 219);
             this.textBoxEtat.Name = "textBoxEtat";
             this.textBoxEtat.Size = new System.Drawing.Size(212, 22);
-            this.textBoxEtat.TabIndex = 38;
+            this.textBoxEtat.TabIndex = 11;
+            this.textBoxEtat.TextChanged += new System.EventHandler(this.textBoxEtat_TextChanged);
             // 
             // textBoxComm
             // 
-            this.textBoxComm.Location = new System.Drawing.Point(611, 278);
+            this.textBoxComm.Location = new System.Drawing.Point(587, 109);
             this.textBoxComm.Multiline = true;
             this.textBoxComm.Name = "textBoxComm";
             this.textBoxComm.Size = new System.Drawing.Size(212, 73);
-            this.textBoxComm.TabIndex = 39;
+            this.textBoxComm.TabIndex = 12;
+            this.textBoxComm.TextChanged += new System.EventHandler(this.textBoxComm_TextChanged);
             // 
             // textBoxClient
             // 
-            this.textBoxClient.Location = new System.Drawing.Point(320, 168);
+            this.textBoxClient.Location = new System.Drawing.Point(321, 321);
             this.textBoxClient.Name = "textBoxClient";
             this.textBoxClient.Size = new System.Drawing.Size(222, 22);
-            this.textBoxClient.TabIndex = 37;
+            this.textBoxClient.TabIndex = 5;
             // 
             // maskedTextBoxPlan
             // 
-            this.maskedTextBoxPlan.Location = new System.Drawing.Point(611, 168);
+            this.maskedTextBoxPlan.Location = new System.Drawing.Point(587, 275);
             this.maskedTextBoxPlan.Mask = "00/00/0000 00:00:00";
             this.maskedTextBoxPlan.Name = "maskedTextBoxPlan";
             this.maskedTextBoxPlan.Size = new System.Drawing.Size(212, 22);
-            this.maskedTextBoxPlan.TabIndex = 44;
+            this.maskedTextBoxPlan.TabIndex = 10;
             this.maskedTextBoxPlan.ValidatingType = typeof(System.DateTime);
+            this.maskedTextBoxPlan.TextChanged += new System.EventHandler(this.maskedTextBoxPlan_TextChanged);
             // 
             // textBoxIdSelect
             // 
             this.textBoxIdSelect.Enabled = false;
-            this.textBoxIdSelect.Location = new System.Drawing.Point(320, 94);
+            this.textBoxIdSelect.Location = new System.Drawing.Point(32, 12);
             this.textBoxIdSelect.Name = "textBoxIdSelect";
             this.textBoxIdSelect.Size = new System.Drawing.Size(21, 22);
             this.textBoxIdSelect.TabIndex = 45;
@@ -294,24 +289,15 @@
             this.textBoxIdSelect.Text = "id";
             this.textBoxIdSelect.Visible = false;
             // 
-            // comboBoxClient
-            // 
-            this.comboBoxClient.Enabled = false;
-            this.comboBoxClient.FormattingEnabled = true;
-            this.comboBoxClient.Location = new System.Drawing.Point(320, 168);
-            this.comboBoxClient.Name = "comboBoxClient";
-            this.comboBoxClient.Size = new System.Drawing.Size(222, 24);
-            this.comboBoxClient.TabIndex = 46;
-            this.comboBoxClient.Visible = false;
-            // 
             // textBoxIdClient
             // 
             this.textBoxIdClient.Enabled = false;
-            this.textBoxIdClient.Location = new System.Drawing.Point(347, 94);
+            this.textBoxIdClient.Location = new System.Drawing.Point(59, 12);
             this.textBoxIdClient.Name = "textBoxIdClient";
             this.textBoxIdClient.Size = new System.Drawing.Size(30, 22);
             this.textBoxIdClient.TabIndex = 47;
             this.textBoxIdClient.Visible = false;
+            this.textBoxIdClient.TextChanged += new System.EventHandler(this.textBoxIdClient_TextChanged);
             // 
             // labelInfo
             // 
@@ -323,11 +309,78 @@
             this.labelInfo.Size = new System.Drawing.Size(0, 20);
             this.labelInfo.TabIndex = 48;
             // 
+            // labelValider
+            // 
+            this.labelValider.AutoSize = true;
+            this.labelValider.Location = new System.Drawing.Point(435, 482);
+            this.labelValider.Name = "labelValider";
+            this.labelValider.Size = new System.Drawing.Size(0, 17);
+            this.labelValider.TabIndex = 49;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(584, 185);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 17);
+            this.label3.TabIndex = 50;
+            // 
+            // comboBoxObjet
+            // 
+            this.comboBoxObjet.Enabled = false;
+            this.comboBoxObjet.FormattingEnabled = true;
+            this.comboBoxObjet.Location = new System.Drawing.Point(321, 109);
+            this.comboBoxObjet.Name = "comboBoxObjet";
+            this.comboBoxObjet.Size = new System.Drawing.Size(222, 24);
+            this.comboBoxObjet.TabIndex = 9;
+            this.comboBoxObjet.Visible = false;
+            this.comboBoxObjet.SelectedIndexChanged += new System.EventHandler(this.comboBoxObjet_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(318, 90);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label1.Size = new System.Drawing.Size(42, 17);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "Objet";
+            // 
+            // textBoxIdObjet
+            // 
+            this.textBoxIdObjet.Enabled = false;
+            this.textBoxIdObjet.Location = new System.Drawing.Point(95, 12);
+            this.textBoxIdObjet.Name = "textBoxIdObjet";
+            this.textBoxIdObjet.Size = new System.Drawing.Size(97, 22);
+            this.textBoxIdObjet.TabIndex = 53;
+            this.textBoxIdObjet.Visible = false;
+            // 
+            // textBoxObjet
+            // 
+            this.textBoxObjet.Enabled = false;
+            this.textBoxObjet.Location = new System.Drawing.Point(321, 109);
+            this.textBoxObjet.Name = "textBoxObjet";
+            this.textBoxObjet.Size = new System.Drawing.Size(222, 22);
+            this.textBoxObjet.TabIndex = 9;
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(561, 205);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 54;
+            // 
             // FormIntervention
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 508);
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.textBoxObjet);
+            this.Controls.Add(this.textBoxIdObjet);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBoxObjet);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelValider);
             this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.textBoxIdClient);
             this.Controls.Add(this.textBoxIdSelect);
@@ -347,14 +400,11 @@
             this.Controls.Add(this.textBoxMail);
             this.Controls.Add(this.buttonValider);
             this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.buttonSupprimer);
             this.Controls.Add(this.buttonModifier);
             this.Controls.Add(this.buttonAjouter);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.labelIntervention);
-            this.Controls.Add(this.comboBoxClient);
             this.Name = "FormIntervention";
             this.Text = "FormIntervention";
             this.Load += new System.EventHandler(this.FormIntervention_Load);
@@ -372,8 +422,6 @@
         private System.Windows.Forms.TextBox textBoxMail;
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button buttonSupprimer;
         private System.Windows.Forms.Button buttonModifier;
         private System.Windows.Forms.Button buttonAjouter;
@@ -393,8 +441,14 @@
         private System.Windows.Forms.ColumnHeader Commentaire;
         private System.Windows.Forms.ColumnHeader idint;
         private System.Windows.Forms.TextBox textBoxIdSelect;
-        private System.Windows.Forms.ComboBox comboBoxClient;
         private System.Windows.Forms.TextBox textBoxIdClient;
         private System.Windows.Forms.Label labelInfo;
+        private System.Windows.Forms.Label labelValider;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBoxObjet;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxIdObjet;
+        private System.Windows.Forms.TextBox textBoxObjet;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
