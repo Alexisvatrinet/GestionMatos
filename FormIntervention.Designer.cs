@@ -62,13 +62,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxIdObjet = new System.Windows.Forms.TextBox();
             this.textBoxObjet = new System.Windows.Forms.TextBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.checkBoxDone = new System.Windows.Forms.CheckBox();
+            this.labelCancel = new System.Windows.Forms.Label();
+            this.textBoxCancel = new System.Windows.Forms.TextBox();
+            this.buttonAbort = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelMail
             // 
             this.labelMail.AutoSize = true;
-            this.labelMail.Location = new System.Drawing.Point(318, 250);
+            this.labelMail.Location = new System.Drawing.Point(317, 260);
             this.labelMail.Name = "labelMail";
             this.labelMail.Size = new System.Drawing.Size(33, 17);
             this.labelMail.TabIndex = 36;
@@ -77,7 +80,7 @@
             // labelTelephone
             // 
             this.labelTelephone.AutoSize = true;
-            this.labelTelephone.Location = new System.Drawing.Point(318, 199);
+            this.labelTelephone.Location = new System.Drawing.Point(317, 209);
             this.labelTelephone.Name = "labelTelephone";
             this.labelTelephone.Size = new System.Drawing.Size(76, 17);
             this.labelTelephone.TabIndex = 35;
@@ -86,7 +89,7 @@
             // labelPlanifie
             // 
             this.labelPlanifie.AutoSize = true;
-            this.labelPlanifie.Location = new System.Drawing.Point(584, 255);
+            this.labelPlanifie.Location = new System.Drawing.Point(583, 209);
             this.labelPlanifie.Name = "labelPlanifie";
             this.labelPlanifie.Size = new System.Drawing.Size(77, 17);
             this.labelPlanifie.TabIndex = 33;
@@ -94,14 +97,14 @@
             // 
             // textBoxTelephone
             // 
-            this.textBoxTelephone.Location = new System.Drawing.Point(321, 219);
+            this.textBoxTelephone.Location = new System.Drawing.Point(320, 229);
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(222, 22);
             this.textBoxTelephone.TabIndex = 7;
             // 
             // textBoxMail
             // 
-            this.textBoxMail.Location = new System.Drawing.Point(321, 270);
+            this.textBoxMail.Location = new System.Drawing.Point(320, 280);
             this.textBoxMail.Name = "textBoxMail";
             this.textBoxMail.Size = new System.Drawing.Size(222, 22);
             this.textBoxMail.TabIndex = 8;
@@ -128,7 +131,7 @@
             // 
             // buttonSupprimer
             // 
-            this.buttonSupprimer.Location = new System.Drawing.Point(658, 39);
+            this.buttonSupprimer.Location = new System.Drawing.Point(738, 39);
             this.buttonSupprimer.Name = "buttonSupprimer";
             this.buttonSupprimer.Size = new System.Drawing.Size(91, 38);
             this.buttonSupprimer.TabIndex = 3;
@@ -138,7 +141,7 @@
             // 
             // buttonModifier
             // 
-            this.buttonModifier.Location = new System.Drawing.Point(561, 39);
+            this.buttonModifier.Location = new System.Drawing.Point(641, 39);
             this.buttonModifier.Name = "buttonModifier";
             this.buttonModifier.Size = new System.Drawing.Size(91, 38);
             this.buttonModifier.TabIndex = 2;
@@ -148,7 +151,7 @@
             // 
             // buttonAjouter
             // 
-            this.buttonAjouter.Location = new System.Drawing.Point(464, 39);
+            this.buttonAjouter.Location = new System.Drawing.Point(544, 39);
             this.buttonAjouter.Name = "buttonAjouter";
             this.buttonAjouter.Size = new System.Drawing.Size(91, 38);
             this.buttonAjouter.TabIndex = 1;
@@ -195,7 +198,7 @@
             // 
             this.labelIntervention.AutoSize = true;
             this.labelIntervention.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.labelIntervention.Location = new System.Drawing.Point(35, 39);
+            this.labelIntervention.Location = new System.Drawing.Point(35, 37);
             this.labelIntervention.Name = "labelIntervention";
             this.labelIntervention.Size = new System.Drawing.Size(157, 31);
             this.labelIntervention.TabIndex = 20;
@@ -203,7 +206,7 @@
             // 
             // textBoxAdresse
             // 
-            this.textBoxAdresse.Location = new System.Drawing.Point(321, 165);
+            this.textBoxAdresse.Location = new System.Drawing.Point(320, 175);
             this.textBoxAdresse.Name = "textBoxAdresse";
             this.textBoxAdresse.Size = new System.Drawing.Size(222, 22);
             this.textBoxAdresse.TabIndex = 6;
@@ -211,7 +214,7 @@
             // labelAdresse
             // 
             this.labelAdresse.AutoSize = true;
-            this.labelAdresse.Location = new System.Drawing.Point(318, 145);
+            this.labelAdresse.Location = new System.Drawing.Point(317, 155);
             this.labelAdresse.Name = "labelAdresse";
             this.labelAdresse.Size = new System.Drawing.Size(60, 17);
             this.labelAdresse.TabIndex = 34;
@@ -220,7 +223,7 @@
             // labelCommentaire
             // 
             this.labelCommentaire.AutoSize = true;
-            this.labelCommentaire.Location = new System.Drawing.Point(584, 89);
+            this.labelCommentaire.Location = new System.Drawing.Point(583, 99);
             this.labelCommentaire.Name = "labelCommentaire";
             this.labelCommentaire.Size = new System.Drawing.Size(91, 17);
             this.labelCommentaire.TabIndex = 43;
@@ -229,7 +232,7 @@
             // labelEtat
             // 
             this.labelEtat.AutoSize = true;
-            this.labelEtat.Location = new System.Drawing.Point(584, 199);
+            this.labelEtat.Location = new System.Drawing.Point(583, 260);
             this.labelEtat.Name = "labelEtat";
             this.labelEtat.Size = new System.Drawing.Size(33, 17);
             this.labelEtat.TabIndex = 42;
@@ -238,7 +241,7 @@
             // labelClient
             // 
             this.labelClient.AutoSize = true;
-            this.labelClient.Location = new System.Drawing.Point(318, 301);
+            this.labelClient.Location = new System.Drawing.Point(317, 311);
             this.labelClient.Name = "labelClient";
             this.labelClient.Size = new System.Drawing.Size(43, 17);
             this.labelClient.TabIndex = 41;
@@ -246,7 +249,7 @@
             // 
             // textBoxEtat
             // 
-            this.textBoxEtat.Location = new System.Drawing.Point(587, 219);
+            this.textBoxEtat.Location = new System.Drawing.Point(586, 280);
             this.textBoxEtat.Name = "textBoxEtat";
             this.textBoxEtat.Size = new System.Drawing.Size(212, 22);
             this.textBoxEtat.TabIndex = 11;
@@ -254,36 +257,36 @@
             // 
             // textBoxComm
             // 
-            this.textBoxComm.Location = new System.Drawing.Point(587, 109);
+            this.textBoxComm.Location = new System.Drawing.Point(586, 119);
             this.textBoxComm.Multiline = true;
             this.textBoxComm.Name = "textBoxComm";
             this.textBoxComm.Size = new System.Drawing.Size(212, 73);
-            this.textBoxComm.TabIndex = 12;
+            this.textBoxComm.TabIndex = 10;
             this.textBoxComm.TextChanged += new System.EventHandler(this.textBoxComm_TextChanged);
             // 
             // textBoxClient
             // 
-            this.textBoxClient.Location = new System.Drawing.Point(321, 321);
+            this.textBoxClient.Location = new System.Drawing.Point(320, 331);
             this.textBoxClient.Name = "textBoxClient";
             this.textBoxClient.Size = new System.Drawing.Size(222, 22);
             this.textBoxClient.TabIndex = 5;
             // 
             // maskedTextBoxPlan
             // 
-            this.maskedTextBoxPlan.Location = new System.Drawing.Point(587, 275);
-            this.maskedTextBoxPlan.Mask = "00/00/0000 00:00:00";
+            this.maskedTextBoxPlan.Location = new System.Drawing.Point(586, 229);
+            this.maskedTextBoxPlan.Mask = "00/00/0000";
             this.maskedTextBoxPlan.Name = "maskedTextBoxPlan";
             this.maskedTextBoxPlan.Size = new System.Drawing.Size(212, 22);
-            this.maskedTextBoxPlan.TabIndex = 10;
+            this.maskedTextBoxPlan.TabIndex = 12;
             this.maskedTextBoxPlan.ValidatingType = typeof(System.DateTime);
             this.maskedTextBoxPlan.TextChanged += new System.EventHandler(this.maskedTextBoxPlan_TextChanged);
             // 
             // textBoxIdSelect
             // 
             this.textBoxIdSelect.Enabled = false;
-            this.textBoxIdSelect.Location = new System.Drawing.Point(32, 12);
+            this.textBoxIdSelect.Location = new System.Drawing.Point(57, 12);
             this.textBoxIdSelect.Name = "textBoxIdSelect";
-            this.textBoxIdSelect.Size = new System.Drawing.Size(21, 22);
+            this.textBoxIdSelect.Size = new System.Drawing.Size(25, 22);
             this.textBoxIdSelect.TabIndex = 45;
             this.textBoxIdSelect.TabStop = false;
             this.textBoxIdSelect.Text = "id";
@@ -292,9 +295,9 @@
             // textBoxIdClient
             // 
             this.textBoxIdClient.Enabled = false;
-            this.textBoxIdClient.Location = new System.Drawing.Point(59, 12);
+            this.textBoxIdClient.Location = new System.Drawing.Point(89, 12);
             this.textBoxIdClient.Name = "textBoxIdClient";
-            this.textBoxIdClient.Size = new System.Drawing.Size(30, 22);
+            this.textBoxIdClient.Size = new System.Drawing.Size(25, 22);
             this.textBoxIdClient.TabIndex = 47;
             this.textBoxIdClient.Visible = false;
             this.textBoxIdClient.TextChanged += new System.EventHandler(this.textBoxIdClient_TextChanged);
@@ -320,16 +323,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(584, 185);
+            this.label3.Location = new System.Drawing.Point(296, 363);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 17);
             this.label3.TabIndex = 50;
             // 
             // comboBoxObjet
             // 
+            this.comboBoxObjet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxObjet.Enabled = false;
             this.comboBoxObjet.FormattingEnabled = true;
-            this.comboBoxObjet.Location = new System.Drawing.Point(321, 109);
+            this.comboBoxObjet.Location = new System.Drawing.Point(320, 119);
             this.comboBoxObjet.Name = "comboBoxObjet";
             this.comboBoxObjet.Size = new System.Drawing.Size(222, 24);
             this.comboBoxObjet.TabIndex = 9;
@@ -339,7 +343,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(318, 90);
+            this.label1.Location = new System.Drawing.Point(317, 100);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label1.Size = new System.Drawing.Size(42, 17);
@@ -349,32 +353,68 @@
             // textBoxIdObjet
             // 
             this.textBoxIdObjet.Enabled = false;
-            this.textBoxIdObjet.Location = new System.Drawing.Point(95, 12);
+            this.textBoxIdObjet.Location = new System.Drawing.Point(119, 12);
             this.textBoxIdObjet.Name = "textBoxIdObjet";
-            this.textBoxIdObjet.Size = new System.Drawing.Size(97, 22);
+            this.textBoxIdObjet.Size = new System.Drawing.Size(25, 22);
             this.textBoxIdObjet.TabIndex = 53;
             this.textBoxIdObjet.Visible = false;
             // 
             // textBoxObjet
             // 
             this.textBoxObjet.Enabled = false;
-            this.textBoxObjet.Location = new System.Drawing.Point(321, 109);
+            this.textBoxObjet.Location = new System.Drawing.Point(320, 119);
             this.textBoxObjet.Name = "textBoxObjet";
             this.textBoxObjet.Size = new System.Drawing.Size(222, 22);
             this.textBoxObjet.TabIndex = 9;
             // 
-            // monthCalendar1
+            // checkBoxDone
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(561, 205);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 54;
+            this.checkBoxDone.AutoSize = true;
+            this.checkBoxDone.Location = new System.Drawing.Point(586, 311);
+            this.checkBoxDone.Name = "checkBoxDone";
+            this.checkBoxDone.Size = new System.Drawing.Size(94, 21);
+            this.checkBoxDone.TabIndex = 54;
+            this.checkBoxDone.Text = "Accomplie";
+            this.checkBoxDone.UseVisualStyleBackColor = true;
+            this.checkBoxDone.Visible = false;
+            // 
+            // labelCancel
+            // 
+            this.labelCancel.AutoSize = true;
+            this.labelCancel.Location = new System.Drawing.Point(583, 311);
+            this.labelCancel.Name = "labelCancel";
+            this.labelCancel.Size = new System.Drawing.Size(60, 17);
+            this.labelCancel.TabIndex = 57;
+            this.labelCancel.Text = "Annulée";
+            // 
+            // textBoxCancel
+            // 
+            this.textBoxCancel.Enabled = false;
+            this.textBoxCancel.Location = new System.Drawing.Point(586, 331);
+            this.textBoxCancel.Name = "textBoxCancel";
+            this.textBoxCancel.Size = new System.Drawing.Size(212, 22);
+            this.textBoxCancel.TabIndex = 56;
+            // 
+            // buttonAbort
+            // 
+            this.buttonAbort.Enabled = false;
+            this.buttonAbort.Location = new System.Drawing.Point(363, 39);
+            this.buttonAbort.Name = "buttonAbort";
+            this.buttonAbort.Size = new System.Drawing.Size(98, 38);
+            this.buttonAbort.TabIndex = 58;
+            this.buttonAbort.Text = "Abandonner";
+            this.buttonAbort.UseVisualStyleBackColor = true;
+            this.buttonAbort.Click += new System.EventHandler(this.buttonAbort_Click);
             // 
             // FormIntervention
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 508);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.buttonAbort);
+            this.Controls.Add(this.labelCancel);
+            this.Controls.Add(this.textBoxCancel);
+            this.Controls.Add(this.checkBoxDone);
             this.Controls.Add(this.textBoxObjet);
             this.Controls.Add(this.textBoxIdObjet);
             this.Controls.Add(this.label1);
@@ -405,6 +445,7 @@
             this.Controls.Add(this.buttonAjouter);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.labelIntervention);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormIntervention";
             this.Text = "FormIntervention";
             this.Load += new System.EventHandler(this.FormIntervention_Load);
@@ -449,6 +490,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxIdObjet;
         private System.Windows.Forms.TextBox textBoxObjet;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.CheckBox checkBoxDone;
+        private System.Windows.Forms.Label labelCancel;
+        private System.Windows.Forms.TextBox textBoxCancel;
+        private System.Windows.Forms.Button buttonAbort;
     }
 }
